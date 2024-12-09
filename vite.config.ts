@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -10,7 +10,7 @@ export default defineConfig({
     open: true, // 서버 시작 시 브라우저 자동 실행
     proxy: {
       '/api': {
-        target: 'http://localhost:4000', // API 프록시 대상
+        target: 'http://localhost:3000', // API 프록시 대상
         changeOrigin: true, // CORS 우회
         rewrite: (path) => path.replace(/^\/api/, '') // 경로 재작성
       }
@@ -29,13 +29,6 @@ export default defineConfig({
         manualChunks: {
           vendor: ['react', 'react-dom'], // 코드 스플리팅
         },
-      },
-    },
-  },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@import "@/styles/variables.scss";`, // SCSS 변수 전역 사용
       },
     },
   },
