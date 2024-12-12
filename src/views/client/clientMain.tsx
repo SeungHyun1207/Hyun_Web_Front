@@ -9,11 +9,9 @@ const ClientMain = () => {
 
 
     return (
-        <div className="mainWrap">
-            <div className="mainContent">
-                <h2>테스트</h2>
-            </div>
-        </div>
+        <>
+
+        </>
     )
 
 }

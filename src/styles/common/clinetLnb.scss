@@ -1,0 +1,36 @@
+.lnbWrap{
+    width: 300px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+
+    .headLineWrap{
+        position: sticky;
+        top: 0;
+        width: 100%;
+        height: 100px;
+        background-color: aqua;
+        border-bottom: 1px solid black;
+        .logoWrap{
+            display: flex;
+            justify-content: center;
+            align-content: center;
+        }
+    }
+    .bodyLineWrap{
+        overflow-y: auto;
+        width: 100%;
+        height: 100%;
+
+    }
+    .footerLineWrap{
+        position: sticky;
+        bottom: 0;
+        width: 100%;
+.settingWrap{
+    background-color: bisque;
+}
+    }
+}

@@ -4,14 +4,14 @@
  *  내용 : 사용자 공통 레이아웃
  */
 
+import ClientLnb from "./clientLnb";
+
 const CommonLayout = () => {
 
 
     return (
         <div className="mainWrap">
-            <div>
-                하이
-            </div>
+            <ClientLnb />
         </div>
     )
 }
