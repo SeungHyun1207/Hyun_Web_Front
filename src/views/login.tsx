@@ -5,13 +5,20 @@
  */
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
 
+    const navigate = useNavigate();
+
     const [userName, setUserName] = useState<string>("");
+    const [password, setPassWord] = useState<string>("");
+
+
 
     return (
         <div className="loginWrap">
+            <h2>하이</h2>
         </div>
     )
 }

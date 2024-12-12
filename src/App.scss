@@ -1,0 +1,4 @@
+// Vite가 기본적으로 Dart Sass를 내장하고 있으므로 별도의 라이브러리 필요 없음
+// @use 또는 @forward
+@use "./styles/common/index.scss" as common;
+@use "./styles/client/index.scss" as client;
