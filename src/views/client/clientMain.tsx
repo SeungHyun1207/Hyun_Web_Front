@@ -4,16 +4,15 @@
  *  내용 : 사용자 메인화면
  */
 
+import Gnb from '@/views/client/navigation/gnb';
+
 const ClientMain = () => {
-
-
-
-    return (
-        <>
-
-        </>
-    )
-
-}
+  return (
+    <>
+      {/* Gnb */}
+      <Gnb />
+    </>
+  );
+};
 
 export default ClientMain;

@@ -4,19 +4,33 @@
  *  내용 : 사용자 Lnb;
  */
 
-import useClientLnb, { menuList } from "@/apis/hooks/common/useClientLnb";
+import useClientLnb from "@/apis/hooks/common/useClientLnb";
 
 const ClientLnb = () => {
 
 
     const {
         // State
+        menuList,
         // SetState
         // Handler
         handleMenuItemClick
     } = useClientLnb();
 
-    return (
+    const type = (params) => {
+        if(params === null) {
+            return "null";
+        } else if (Array.isArray(params)){
+            return "array";
+        }
+        return typeof params;
+    }
+
+    console.log(type(0));
+
+
+
+    
         <div className="lnbWrap">
             <div className="headLineWrap">
                 {/* Logo */}
@@ -55,7 +69,7 @@ const ClientLnb = () => {
                 </div>
             </div>
         </div>
-    )
+
 
 }
 

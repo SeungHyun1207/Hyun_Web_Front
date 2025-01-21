@@ -4,16 +4,14 @@
  *  내용 : 사용자 공통 레이아웃
  */
 
-import ClientLnb from "./clientLnb";
+import ClientMain from '@/views/client/clientMain'
 
 const CommonLayout = () => {
-
-
-    return (
-        <div className="mainWrap">
-            <ClientLnb />
-        </div>
-    )
+  return (
+    <div className="mainWrap">
+      <ClientMain />
+    </div>
+  )
 }
 
-export default CommonLayout;
+export default CommonLayout
