@@ -66,6 +66,7 @@ const Game = () => {
     getCharacterOCID,
   } = useGame();
 
+  // 장착중인 장비 랜더링
   const renderCharacterEquipment = (
     characterItemEquipments: ICharacterItemEquipments[]
   ) => {
@@ -130,33 +131,38 @@ const Game = () => {
         </button>
         <button onClick={() => {}}>초기화</button>
       </div>
-      {characterBaseInfos && (
-        <div className="characterBaseInfoWrap">
-          <div className="imageWithNameInfo">
-            {/* 캐릭터 이미지 */}
-            <img src={characterBaseInfos.character_image} alt="캐릭터 이미지" />
-            {/* 캐릭터 이름 */}
-            <span>{characterBaseInfos.character_name} </span>
-          </div>
-          <div className="characterInfo">
-            <div className="classWithLevelWithPopularityInfo">
-              <span> 직업 : {characterBaseInfos.character_class}</span>
-              <span> 레벨 : {characterBaseInfos.character_level}</span>
-              <span> 인기도 : {characterPopularity}</span>
+      <div className="characterInfoWrap">
+        {characterBaseInfos && (
+          <div className="characterBaseInfoWrap">
+            <div className="imageWithNameInfo">
+              {/* 캐릭터 이미지 */}
+              <img
+                src={characterBaseInfos.character_image}
+                alt="캐릭터 이미지"
+              />
+              {/* 캐릭터 이름 */}
+              <span>{characterBaseInfos.character_name} </span>
             </div>
+            <div className="characterInfo">
+              <div className="classWithLevelWithPopularityInfo">
+                <span> 직업 : {characterBaseInfos.character_class}</span>
+                <span> 레벨 : {characterBaseInfos.character_level}</span>
+                <span> 인기도 : {characterPopularity}</span>
+              </div>
 
-            <div className="expInfo">
-              <div>
-                경험치 : {characterBaseInfos.character_exp_rate}% / 100%
+              <div className="expInfo">
+                <div>
+                  경험치 : {characterBaseInfos.character_exp_rate}% / 100%
+                </div>
+              </div>
+              <div className="guildInfo">
+                <div>길드 : {characterBaseInfos.character_guild_name}</div>
               </div>
             </div>
-            <div className="guildInfo">
-              <div>길드 : {characterBaseInfos.character_guild_name}</div>
-            </div>
           </div>
-        </div>
-      )}
-      {renderCharacterEquipment(characterItemEquipments)};
+        )}
+        {renderCharacterEquipment(characterItemEquipments)}
+      </div>
     </div>
   );
 };
