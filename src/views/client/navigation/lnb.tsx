@@ -4,7 +4,7 @@
  *  내용 : 사용자 LNB (Location Navigation Bar)
  */
 
-import useGnb from '@/apis/hooks/client/useGnb';
+import useGnb from '@/apis/hooks/client/gnb/useGnb';
 
 const ClientLnb = () => {
   const {

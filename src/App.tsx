@@ -1,5 +1,6 @@
 import ClientMain from '@/views/client/clientMain';
 import CommonLayout from '@/views/common/client/commonLayout';
+import Game from '@views/client/game/game.tsx';
 import StyleItem from '@views/client/styleItems/styleItems';
 import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
@@ -28,7 +29,7 @@ function App() {
             {/* 여행 */}
             {/* 공부 */}
             {/* 게임 */}
-            <Route path="game" element={<StyleItem />} />
+            <Route path="game" element={<Game />} />
             {/* 스타일 아이템 */}
             <Route path="styleItem" element={<StyleItem />}>
               {/* <Route path="" <StyleItem /> */}

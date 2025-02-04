@@ -4,7 +4,7 @@
  *  내용 : 사용자 Style Item
  */
 
-import useStyleItems from '@/apis/hooks/client/useStyleItems';
+import useStyleItems from '@/apis/hooks/client/styleitems/useStyleItems';
 
 const StyleItem = () => {
   const {
