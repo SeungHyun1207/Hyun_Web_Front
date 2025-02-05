@@ -5,24 +5,32 @@
  */
 
 import {
+  getCharacterAndroidEquipmentFetchResponse,
   getCharacterCashItemEquipmentFetchResponse,
+  getCharacterDojangFetchResponse,
   getCharacterInfoFetchResponse,
   getCharacterItemEquipmentFetchResponse,
-  getCharacterOCIDFetchResponse,
   getCharacterPopularityFetchResponse,
   getCharacterSetEffectFetchResponse,
   getCharacterSymbolEquipmentFetchResponse,
+} from '@/apis/client/game/maplestory/character/characterApi';
+import {
+  getCharacterOCIDFetchResponse,
   IMapleCharacterInfoParameters,
-} from '@/apis/client/gameApi';
+} from '@/apis/client/game/maplestory/mapleCommonApi';
+import { getUnionInfoFetchResponse } from '@/apis/client/game/maplestory/union/unionApi';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
+  useMapleCharacterAndroidStore,
   useMapleCharacterBaseInfoStore,
   useMapleCharacterCashItemEquipmentsStore,
+  useMapleCharacterDojangStore,
   useMapleCharacterItemEquipmentsStore,
   useMapleCharacterOCIDStore,
   useMapleCharacterSetEffectStore,
   useMapleCharacterSymbolEquipmentsStore,
+  useMapleUnionInfoStore,
 } from './stores/useGameStore';
 
 export const equipmentOrder = [
@@ -108,6 +116,23 @@ const useGame = () => {
     (characterSetEffects) => characterSetEffects.setCharacterSetEffect
   );
 
+  // 캐릭터 장착 안드로이드 정보
+  const setCharacterAndroidEquipment = useMapleCharacterAndroidStore(
+    (characterAndroidEquipment) =>
+      characterAndroidEquipment.setCharacterAndroidEquipment
+  );
+
+  // 캐릭터 무릉도장 최고기록 정보
+  const setCharacterDojang = useMapleCharacterDojangStore(
+    (characterDojang) => characterDojang.setCharacterDojang
+  );
+
+  // ============================================================
+  // 유니온 정보 조회
+  const setUnionInfo = useMapleUnionInfoStore(
+    (unionInfo) => unionInfo.setUnionInfo
+  );
+
   /**
    * 캐릭터 식별자 조회
    * @param characterName
@@ -144,6 +169,23 @@ const useGame = () => {
         });
         // 적용 세트효과
         getCharacterSetEffect({
+          ocid: ocid,
+          date: yesterday.toISOString().split('T')[0],
+        });
+        // 장착 안드로이드 정보
+        getCharacterAndroidEquipment({
+          ocid: ocid,
+          date: yesterday.toISOString().split('T')[0],
+        });
+        // 무릉도장 최고기록 정보
+        getCharacterDojang({
+          ocid: ocid,
+          date: yesterday.toISOString().split('T')[0],
+        });
+
+        // ============================================================
+        // 유니온 정보 조회
+        getUnionInfo({
           ocid: ocid,
           date: yesterday.toISOString().split('T')[0],
         });
@@ -286,6 +328,68 @@ const useGame = () => {
       if (setEffectData) {
         const setEffect = setEffectData.set_effect;
         setCharacterSetEffect(setEffect);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  /**
+   *  캐릭터 장착 안드로이드 정보 조회
+   * @param characterOCID
+   * @param searchDate
+   */
+  const getCharacterAndroidEquipment = async (
+    params: IMapleCharacterInfoParameters
+  ) => {
+    try {
+      const androidData = await getCharacterAndroidEquipmentFetchResponse({
+        ocid: params.ocid,
+        date: params.date,
+      });
+      if (androidData) {
+        const androidCashItem = androidData.android_cash_item_equipment;
+        setCharacterAndroidEquipment(androidData);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  /**
+   *  캐릭터 무릉도장 최고기록 정보 조회
+   * @param characterOCID
+   * @param searchDate
+   */
+  const getCharacterDojang = async (params: IMapleCharacterInfoParameters) => {
+    try {
+      const dojangData = await getCharacterDojangFetchResponse({
+        ocid: params.ocid,
+        date: params.date,
+      });
+      if (dojangData) {
+        setCharacterDojang(dojangData);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // ============================================================
+
+  /**
+   *  유니온 정보 조회
+   * @param characterOCID
+   * @param searchDate
+   */
+  const getUnionInfo = async (params: IMapleCharacterInfoParameters) => {
+    try {
+      const unionInfoData = await getUnionInfoFetchResponse({
+        ocid: params.ocid,
+        date: params.date,
+      });
+      if (unionInfoData) {
+        setUnionInfo(unionInfoData);
       }
     } catch (error) {
       console.log(error);

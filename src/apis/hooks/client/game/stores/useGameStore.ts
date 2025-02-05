@@ -7,12 +7,15 @@
  */
 
 import {
+  ICharacterAndroidFetchResponse,
   ICharacterCashItemEquipments,
+  ICharacterDojangFetchResponse,
   ICharacterItemEquipments,
   ICharacterSetEffectInfo,
   ICharacterSymbolInfo,
   IMapleCharacterBaseInfoFetchResponse,
-} from '@/apis/client/gameApi';
+} from '@/apis/client/game/maplestory/character/characterApi';
+import { IUnionInfoFetchResponse } from '@/apis/client/game/maplestory/union/unionApi';
 import { create } from 'zustand';
 
 // ============================================================
@@ -120,4 +123,52 @@ export const useMapleCharacterSetEffectStore =
     setCharacterSetEffect: (setEffects) =>
       set({ characterSetEffect: setEffects }),
   }));
+// ============================================================
+
+// ============================================================
+// 캐릭터 장착 안드로이드 정보 Store
+interface IMapleCharacterAndroidEquipmentsStore {
+  characterAndroidEquipment: ICharacterAndroidFetchResponse | null;
+  setCharacterAndroidEquipment: (
+    androidEquipment: ICharacterAndroidFetchResponse
+  ) => void;
+}
+
+export const useMapleCharacterAndroidStore =
+  create<IMapleCharacterAndroidEquipmentsStore>((set) => ({
+    characterAndroidEquipment: null,
+    setCharacterAndroidEquipment: (androidEquipment) =>
+      set({ characterAndroidEquipment: androidEquipment }),
+  }));
+// ============================================================
+
+// ============================================================
+// 캐릭터 무릉도장 최고기록 정보 Store
+interface IMapleCharacterDojangStore {
+  characterDojang: ICharacterDojangFetchResponse | null;
+  setCharacterDojang: (dojang: ICharacterDojangFetchResponse) => void;
+}
+
+export const useMapleCharacterDojangStore = create<IMapleCharacterDojangStore>(
+  (set) => ({
+    characterDojang: null,
+    setCharacterDojang: (dojang) => set({ characterDojang: dojang }),
+  })
+);
+// ============================================================
+
+// ************************************************************************************************************************
+// ************************************************************************************************************************
+
+// ============================================================
+// 유니온 정보 Store
+interface IMapleUnionInfoStore {
+  unionInfo: IUnionInfoFetchResponse | null;
+  setUnionInfo: (union: IUnionInfoFetchResponse) => void;
+}
+
+export const useMapleUnionInfoStore = create<IMapleUnionInfoStore>((set) => ({
+  unionInfo: null,
+  setUnionInfo: (union) => set({ unionInfo: union }),
+}));
 // ============================================================

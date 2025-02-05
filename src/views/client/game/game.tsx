@@ -7,10 +7,12 @@
 import { useMapleCharacterBaseInfoStore } from '@/apis/hooks/client/game/stores/useGameStore';
 import useGame from '@/apis/hooks/client/game/useGame';
 import { useEffect } from 'react';
-import CharacterCashItemEquipments from './charactercashitemequipments/characterCashItemEquipments';
-import CharacterItemEquipments from './characteritemequipments/characterItemEquipments';
-import CharacterSetEffects from './characterseteffects/characterSetEffects';
-import CharacterSymbolEquipments from './charactersymbolequipments/characterSymbolEquipments';
+import CharacterAndroidEquipments from './maplestory/character/characterAndroidEquipments';
+import CharacterCashItemEquipments from './maplestory/character/characterCashItemEquipments';
+import CharacterDojang from './maplestory/character/characterDojang';
+import CharacterItemEquipments from './maplestory/character/characterItemEquipments';
+import CharacterSetEffects from './maplestory/character/characterSetEffects';
+import CharacterSymbolEquipments from './maplestory/character/characterSymbolEquipments';
 
 const Game = () => {
   // Store
@@ -78,17 +80,24 @@ const Game = () => {
               <div className="guildInfo">
                 <div>길드 : {characterBaseInfos.character_guild_name}</div>
               </div>
+              {/* 적용중인 세트 효과 */}
+              <CharacterSetEffects />
+              {/* 장착중인 심볼 */}
+              <CharacterSymbolEquipments />
             </div>
           </div>
         )}
-        {/* 장착중인 장비 */}
-        <CharacterItemEquipments />
-        {/* 장착중인 캐시 장비 */}
-        <CharacterCashItemEquipments />
-        {/* 장착중인 심볼 */}
-        <CharacterSymbolEquipments />
-        {/* 적용중인 세트 효과 */}
-        <CharacterSetEffects />
+        <div>
+          {/* 장착중인 장비 */}
+          <CharacterItemEquipments />
+          {/* 장착중인 캐시 장비 */}
+          <CharacterCashItemEquipments />
+        </div>
+
+        {/* 장착중인 안드로이드 */}
+        <CharacterAndroidEquipments />
+        {/* 무릉도장 최고기록 */}
+        <CharacterDojang />
       </div>
     </div>
   );

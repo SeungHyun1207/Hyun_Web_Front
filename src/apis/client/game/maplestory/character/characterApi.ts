@@ -1,18 +1,11 @@
 /**
  *  작성일 : 2025-02-02
  *  작성자 : SH.K
- *  내용 : 사용자 Game API
- *  https://openapi.nexon.com/ko/game/maplestory/?id=14
- *  // 식별자 079aa01facbb8124311c61f667e21dc8
+ *  내용 : 사용자 Game > MapleStory 캐릭터 API
  */
 
-import MapleCommonApiAxios from '../common/MapleCommonApiAxios';
-// ============================================================
-// 캐릭터 정보 (식별자) 조회
-export interface IMapleCharacterOCIDFetchResponse {
-  ocid: string;
-}
-// ============================================================
+import MapleCommonApiAxios from '@/apis/common/MapleCommonApiAxios';
+import { IMapleCharacterInfoParameters } from '../mapleCommonApi';
 
 // ============================================================
 // 내 계정 캐릭터 목록 조회
@@ -29,14 +22,6 @@ export interface IMapleCharacterInfo {
 }
 export interface IMapleMyCharactersFetchResponse {
   account_list: IMapleCharacterInfo[];
-}
-// ============================================================
-
-// ============================================================
-// 공통 Parameters
-export interface IMapleCharacterInfoParameters {
-  ocid: string;
-  date: string;
 }
 // ============================================================
 
@@ -240,20 +225,6 @@ export interface ICharacterItemEquipmentFetchResponse {
 
 // ============================================================
 // 캐릭터 장착 캐시 장비 정보
-export interface ICharacterCashItemEquipments {
-  cash_item_equipment_part: string;
-  cash_item_equipment_slot: string;
-  cash_item_name: string;
-  cash_item_icon: string;
-  cash_item_description?: string | null;
-  cash_item_option: any[];
-  date_expire?: string | null;
-  date_option_expire?: string | null;
-  cash_item_label?: string | null;
-  cash_item_coloring_prism?: string | null;
-  item_gender?: string | null;
-}
-
 export interface ICharacterCashItemEquipmentFetchResponse {
   date: string;
   character_gender: string;
@@ -269,10 +240,30 @@ export interface ICharacterCashItemEquipmentFetchResponse {
   additional_cash_item_equipment_preset_2: ICharacterCashItemEquipments[];
   additional_cash_item_equipment_preset_3: ICharacterCashItemEquipments[];
 }
+export interface ICharacterCashItemEquipments {
+  cash_item_equipment_part: string;
+  cash_item_equipment_slot: string;
+  cash_item_name: string;
+  cash_item_icon: string;
+  cash_item_description?: string | null;
+  cash_item_option: any[];
+  date_expire?: string | null;
+  date_option_expire?: string | null;
+  cash_item_label?: string | null;
+  cash_item_coloring_prism?: string | null;
+  item_gender?: string | null;
+}
+
 // ============================================================
 
 // ============================================================
 // 캐릭터 장착 심볼 정보
+
+export interface ICharacterSymbolEquipmentsFetchResponse {
+  character_class: string;
+  date: string;
+  symbol: ICharacterSymbolInfo[];
+}
 export interface ICharacterSymbolInfo {
   symbol_description: string;
   symbol_dex: string;
@@ -290,18 +281,13 @@ export interface ICharacterSymbolInfo {
   symbol_require_growth_count: number;
   symbol_str: string;
 }
-export interface ICharacterSymbolEquipmentsFetchResponse {
-  character_class: string;
-  date: string;
-  symbol: ICharacterSymbolInfo[];
-}
 // ============================================================
 
 // ============================================================
 // 캐릭터 적용 세트효과 정보
-export interface ICharacterSetEffectOptionInfo {
-  set_count: number;
-  set_option: string;
+export interface ICharacterSetEffectFetchResponse {
+  date: string;
+  set_effect: ICharacterSetEffectInfo[];
 }
 export interface ICharacterSetEffectInfo {
   set_effect_info: ICharacterSetEffectOptionInfo[];
@@ -309,18 +295,99 @@ export interface ICharacterSetEffectInfo {
   set_option_full: ICharacterSetEffectOptionInfo[];
   total_set_count: number;
 }
-export interface ICharacterSetEffectFetchResponse {
-  date: string;
-  set_effect: ICharacterSetEffectInfo[];
+export interface ICharacterSetEffectOptionInfo {
+  set_count: number;
+  set_option: string;
+}
+
+// ============================================================
+
+// ============================================================
+// 캐릭터 장착 안드로이드 정보
+export interface ICharacterAndroidFetchResponse {
+  date: string; // ISO 형식 날짜 문자열
+  android_name: string;
+  android_nickname: string;
+  android_icon: string; // URL
+  android_description: string;
+  android_hair: IAndroidHair;
+  android_face: IAndroidFace;
+  android_skin: IAndroidSkin;
+  android_cash_item_equipment: IAndroidCashItemEquipment[];
+  android_ear_sensor_clip_flag: string;
+  android_gender: '남' | '여';
+  android_grade: number;
+  android_non_humanoid_flag: '인간형' | '비인간형';
+  android_shop_usable_flag: '가능' | '불가능';
+  preset_no: number;
+  android_preset_1: IAndroidPreset;
+  android_preset_2: IAndroidPreset;
+  android_preset_3: IAndroidPreset;
+}
+
+export interface IAndroidHair {
+  hair_name: string;
+  base_color: string;
+  mix_color: string;
+  mix_rate: string;
+}
+
+export interface IAndroidFace {
+  face_name: string;
+  base_color: string;
+  mix_color: string;
+  mix_rate: string;
+}
+
+export interface IAndroidSkin {
+  skin_name: string;
+  color_style: string;
+  hue: number;
+  saturation: number;
+  brightness: number;
+}
+
+export interface IAndroidCashItemEquipment {
+  cash_item_equipment_part: string;
+  cash_item_equipment_slot: string;
+  cash_item_name: string;
+  cash_item_icon: string; // URL
+  cash_item_description: string;
+  cash_item_option: string[];
+  date_expire: string;
+  date_option_expire: string;
+  cash_item_label: string;
+  cash_item_coloring_prism: string;
+  android_item_gender: '남' | '여';
+}
+
+export interface IAndroidPreset {
+  android_name: string;
+  android_nickname: string;
+  android_icon: string; // URL
+  android_description: string;
+  android_gender: '남' | '여';
+  android_grade: number;
+  android_skin: IAndroidSkin;
+  android_hair: IAndroidHair;
+  android_face: IAndroidFace;
+  android_ear_sensor_clip_flag: string;
+  android_non_humanoid_flag: '인간형' | '비인간형';
+  android_shop_usable_flag: '가능' | '불가능';
 }
 // ============================================================
 
-// 캐릭터 식별자 조회
-export const getCharacterOCIDFetchResponse = (characterName: string) => {
-  return MapleCommonApiAxios.get<IMapleCharacterOCIDFetchResponse>(
-    `/v1/id?character_name=${characterName}`
-  ).then(({ data }) => data);
-};
+// ============================================================
+// 캐릭터 무릉도장 최고기록 정보
+export interface ICharacterDojangFetchResponse {
+  date: string;
+  character_class: string;
+  world_name: string;
+  dojang_best_floor: number;
+  date_dojang_record: string;
+  dojang_best_time: number;
+}
+// ============================================================
 
 // 내 계정 캐릭터 목록 조회
 export const getMyAccountCharacterListFetchResponse = () => {
@@ -346,6 +413,9 @@ export const getCharacterPopularityFetchResponse = (
     `/v1/character/popularity?ocid=${params.ocid}&date=${params.date}`
   ).then(({ data }) => data);
 };
+
+// 종합 능력치 정보 조회 / 하이퍼스탯 정보 조회 /
+// 성향 정보 조회 / 어빌리티 정보 조회
 
 // 캐릭터 장착 장비 정보 조회 (캐시장비 제외)
 export const getCharacterItemEquipmentFetchResponse = (
@@ -380,5 +450,29 @@ export const getCharacterSetEffectFetchResponse = (
 ) => {
   return MapleCommonApiAxios.get<ICharacterSetEffectFetchResponse>(
     `/v1/character/set-effect?ocid=${params.ocid}&date=${params.date}`
+  ).then(({ data }) => data);
+};
+
+// 장착 헤어,성형,피부 정보 조회 패스
+
+// 캐릭터 장착 안드로이드 정보 조회
+export const getCharacterAndroidEquipmentFetchResponse = (
+  params: IMapleCharacterInfoParameters
+) => {
+  return MapleCommonApiAxios.get<ICharacterAndroidFetchResponse>(
+    `/v1/character/android-equipment?ocid=${params.ocid}&date=${params.date}`
+  ).then(({ data }) => data);
+};
+
+// 캐릭터 장착 펫 정보 조회
+
+// 스킬, 장착 링크 스킬, V매트릭스, HEXA코어, HEXA매트릭스 설정 HEXA스탯 패스
+
+// 무릉도장 최고기록 정보 조회
+export const getCharacterDojangFetchResponse = (
+  params: IMapleCharacterInfoParameters
+) => {
+  return MapleCommonApiAxios.get<ICharacterDojangFetchResponse>(
+    `/v1/character/dojang?ocid=${params.ocid}&date=${params.date}`
   ).then(({ data }) => data);
 };
