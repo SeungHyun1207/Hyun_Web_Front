@@ -3,6 +3,7 @@
  *  작성자 : SH.K
  *  내용 : 사용자 Game API
  *  https://openapi.nexon.com/ko/game/maplestory/?id=14
+ *  // 식별자 079aa01facbb8124311c61f667e21dc8
  */
 
 import MapleCommonApiAxios from '../common/MapleCommonApiAxios';
@@ -217,11 +218,16 @@ export interface ICharacterItemEquipments {
   date_expire: string;
 }
 export interface ICharacterItemEquipmentFetchResponse {
-  date: string;
-  character_gender: string;
   character_class: string;
-  perset_no: number;
+  character_gender: string;
+  date: string;
+  dragon_equipment: [];
   item_equipment: ICharacterItemEquipments[];
+  item_equipment_preset_1: ICharacterItemEquipments[];
+  item_equipment_preset_2: ICharacterItemEquipments[];
+  item_equipment_preset_3: ICharacterItemEquipments[];
+  mechanic_equipment: [];
+  preset_no: number;
   title: {
     title_name: string;
     title_icon: string;
@@ -229,8 +235,83 @@ export interface ICharacterItemEquipmentFetchResponse {
     date_expire: string;
     date_option_expired: string;
   };
-  dragon_equipment: [];
-  mechanic_equipment: [];
+}
+// ============================================================
+
+// ============================================================
+// 캐릭터 장착 캐시 장비 정보
+export interface ICharacterCashItemEquipments {
+  cash_item_equipment_part: string;
+  cash_item_equipment_slot: string;
+  cash_item_name: string;
+  cash_item_icon: string;
+  cash_item_description?: string | null;
+  cash_item_option: any[];
+  date_expire?: string | null;
+  date_option_expire?: string | null;
+  cash_item_label?: string | null;
+  cash_item_coloring_prism?: string | null;
+  item_gender?: string | null;
+}
+
+export interface ICharacterCashItemEquipmentFetchResponse {
+  date: string;
+  character_gender: string;
+  character_class: string;
+  character_look_mode: string;
+  preset_no: number;
+  cash_item_equipment_base: ICharacterCashItemEquipments[];
+  cash_item_equipment_preset_1: ICharacterCashItemEquipments[];
+  cash_item_equipment_preset_2: ICharacterCashItemEquipments[];
+  cash_item_equipment_preset_3: ICharacterCashItemEquipments[];
+  additional_cash_item_equipment_base: ICharacterCashItemEquipments[];
+  additional_cash_item_equipment_preset_1: ICharacterCashItemEquipments[];
+  additional_cash_item_equipment_preset_2: ICharacterCashItemEquipments[];
+  additional_cash_item_equipment_preset_3: ICharacterCashItemEquipments[];
+}
+// ============================================================
+
+// ============================================================
+// 캐릭터 장착 심볼 정보
+export interface ICharacterSymbolInfo {
+  symbol_description: string;
+  symbol_dex: string;
+  symbol_drop_rate: string;
+  symbol_exp_rate: string;
+  symbol_force: string;
+  symbol_growth_count: number;
+  symbol_hp: string;
+  symbol_icon: string;
+  symbol_int: string;
+  symbol_level: number;
+  symbol_luk: string;
+  symbol_meso_rate: string;
+  symbol_name: string;
+  symbol_require_growth_count: number;
+  symbol_str: string;
+}
+export interface ICharacterSymbolEquipmentsFetchResponse {
+  character_class: string;
+  date: string;
+  symbol: ICharacterSymbolInfo[];
+}
+// ============================================================
+
+// ============================================================
+// 캐릭터 적용 세트효과 정보
+export interface ICharacterSetEffectOptionInfo {
+  set_count: number;
+  set_option: string;
+}
+export interface ICharacterSetEffectInfo {
+  set_effect_info: ICharacterSetEffectOptionInfo[];
+  set_name: string;
+  set_option_full: ICharacterSetEffectOptionInfo[];
+  total_set_count: number;
+}
+export interface ICharacterSetEffectFetchResponse {
+  date: string;
+  set_effect: ICharacterSetEffectInfo[];
 }
 // ============================================================
 
@@ -272,5 +353,32 @@ export const getCharacterItemEquipmentFetchResponse = (
 ) => {
   return MapleCommonApiAxios.get<ICharacterItemEquipmentFetchResponse>(
     `/v1/character/item-equipment?ocid=${params.ocid}&date=${params.date}`
+  ).then(({ data }) => data);
+};
+
+// 캐릭터 장착 캐시 장비 정보 조회
+export const getCharacterCashItemEquipmentFetchResponse = (
+  params: IMapleCharacterInfoParameters
+) => {
+  return MapleCommonApiAxios.get<ICharacterCashItemEquipmentFetchResponse>(
+    `/v1/character/cashitem-equipment?ocid=${params.ocid}&date=${params.date}`
+  ).then(({ data }) => data);
+};
+
+// 캐릭터 장착 심볼 정보 조회
+export const getCharacterSymbolEquipmentFetchResponse = (
+  params: IMapleCharacterInfoParameters
+) => {
+  return MapleCommonApiAxios.get<ICharacterSymbolEquipmentsFetchResponse>(
+    `/v1/character/symbol-equipment?ocid=${params.ocid}&date=${params.date}`
+  ).then(({ data }) => data);
+};
+
+// 캐릭터 적용 세트효과 정보 조회
+export const getCharacterSetEffectFetchResponse = (
+  params: IMapleCharacterInfoParameters
+) => {
+  return MapleCommonApiAxios.get<ICharacterSetEffectFetchResponse>(
+    `/v1/character/set-effect?ocid=${params.ocid}&date=${params.date}`
   ).then(({ data }) => data);
 };

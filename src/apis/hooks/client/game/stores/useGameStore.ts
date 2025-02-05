@@ -7,7 +7,10 @@
  */
 
 import {
+  ICharacterCashItemEquipments,
   ICharacterItemEquipments,
+  ICharacterSetEffectInfo,
+  ICharacterSymbolInfo,
   IMapleCharacterBaseInfoFetchResponse,
 } from '@/apis/client/gameApi';
 import { create } from 'zustand';
@@ -67,5 +70,54 @@ export const useMapleCharacterItemEquipmentsStore =
     characterItemEquipments: [],
     setCharacterItemEquipments: (itemEquipments) =>
       set({ characterItemEquipments: itemEquipments }),
+  }));
+// ============================================================
+
+// ============================================================
+// 캐릭터 장착 캐시 장비 정보 Store
+interface IMapleCharacterCashItemEquipmentsStore {
+  characterCashItemEquipments: ICharacterCashItemEquipments[] | [];
+  setCharacterCashItemEquipments: (
+    itemEquipments: ICharacterCashItemEquipments[]
+  ) => void;
+}
+
+export const useMapleCharacterCashItemEquipmentsStore =
+  create<IMapleCharacterCashItemEquipmentsStore>((set) => ({
+    characterCashItemEquipments: [],
+    setCharacterCashItemEquipments: (cashItemEquipments) =>
+      set({ characterCashItemEquipments: cashItemEquipments }),
+  }));
+// ============================================================
+
+// ============================================================
+// 캐릭터 장착 심볼 정보 Store
+interface IMapleCharacterSymbolEquipmentsStore {
+  characterSymbolEquipments: ICharacterSymbolInfo[] | [];
+  setCharacterSymbolEquipments: (
+    symbolEquipments: ICharacterSymbolInfo[]
+  ) => void;
+}
+
+export const useMapleCharacterSymbolEquipmentsStore =
+  create<IMapleCharacterSymbolEquipmentsStore>((set) => ({
+    characterSymbolEquipments: [],
+    setCharacterSymbolEquipments: (symbolEquipments) =>
+      set({ characterSymbolEquipments: symbolEquipments }),
+  }));
+// ============================================================
+
+// ============================================================
+// 캐릭터 적용 세트효과 정보 Store
+interface IMapleCharacterSetEffectStore {
+  characterSetEffect: ICharacterSetEffectInfo[];
+  setCharacterSetEffect: (setEffects: ICharacterSetEffectInfo[]) => void;
+}
+
+export const useMapleCharacterSetEffectStore =
+  create<IMapleCharacterSetEffectStore>((set) => ({
+    characterSetEffect: [],
+    setCharacterSetEffect: (setEffects) =>
+      set({ characterSetEffect: setEffects }),
   }));
 // ============================================================
