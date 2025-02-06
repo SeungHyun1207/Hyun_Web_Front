@@ -1,6 +1,6 @@
 import ClientMain from '@/views/client/clientMain';
 import CommonLayout from '@/views/common/client/commonLayout';
-import Game from '@views/client/game/game.tsx';
+import Game from '@/views/client/game/mapleIndex';
 import StyleItem from '@views/client/styleItems/styleItems';
 import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';

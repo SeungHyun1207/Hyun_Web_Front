@@ -7,7 +7,7 @@ import { useMapleCharacterCashItemEquipmentsStore } from '@/apis/hooks/client/ga
 import {
   equipmentClassName,
   equipmentOrder,
-} from '@apis/hooks/client/game/useGame';
+} from '@/apis/hooks/client/game/useMapleCharacter';
 
 const CharacterCashItemEquipments = () => {
   const { characterCashItemEquipments } =

@@ -7,7 +7,7 @@ import { useMapleCharacterItemEquipmentsStore } from '@/apis/hooks/client/game/s
 import {
   equipmentClassName,
   equipmentOrder,
-} from '@apis/hooks/client/game/useGame';
+} from '@/apis/hooks/client/game/useMapleCharacter';
 
 const CharacterItemEquipments = () => {
   const { characterItemEquipments } = useMapleCharacterItemEquipmentsStore();

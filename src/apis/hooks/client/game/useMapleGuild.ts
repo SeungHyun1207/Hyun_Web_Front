@@ -1,7 +1,7 @@
 /**
  *  작성일 : 2025-02-03
  *  작성자 : SH.K
- *  내용 : 사용자 Game Hook
+ *  내용 : 사용자 Maple 길드 Hook
  */
 
 import {
@@ -99,13 +99,6 @@ const useMapleGuild = () => {
   // 서버
   const [worldSearchName, setWorldSearchName] = useState<string>('');
 
-  // 길드 검색 창 엔터 시
-  const handlerGuildSearch = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') {
-      getGuildOGuildID(guildSearchName, worldSearchName);
-    }
-  };
-
   const setGuildOGuildID = useMapleGuildOGuildIDStore(
     (oGuildId) => oGuildId.setGuildOGuildID
   );
@@ -113,6 +106,13 @@ const useMapleGuild = () => {
   const setGuildBaseInfo = useMapleGuildBaseInfoStore(
     (baseInfo) => baseInfo.setGuildBaseInfo
   );
+
+  // 길드 검색 창 엔터 시
+  const handlerGuildSearch = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      getGuildOGuildID(guildSearchName, worldSearchName);
+    }
+  };
 
   /**
    * 길드 OGuildID 조회

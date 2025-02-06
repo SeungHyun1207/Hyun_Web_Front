@@ -1,7 +1,7 @@
 /**
  *  작성일 : 2025-02-03
  *  작성자 : SH.K
- *  내용 : 사용자 Game Hook
+ *  내용 : 사용자 Maple 캐릭터 Hook
  */
 
 import {
@@ -77,7 +77,7 @@ export const equipmentClassName = new Map([
   ['기계 심장', 'heartInfo'],
 ]);
 
-const useGame = () => {
+const useMapleCharacter = () => {
   const navigate = useNavigate();
 
   const today = new Date();
@@ -471,4 +471,4 @@ const useGame = () => {
   };
 };
 
-export default useGame;
+export default useMapleCharacter;
