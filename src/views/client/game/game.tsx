@@ -13,6 +13,9 @@ import CharacterDojang from './maplestory/character/characterDojang';
 import CharacterItemEquipments from './maplestory/character/characterItemEquipments';
 import CharacterSetEffects from './maplestory/character/characterSetEffects';
 import CharacterSymbolEquipments from './maplestory/character/characterSymbolEquipments';
+import UnionArtifact from './maplestory/union/unionArtifact';
+import UnionAttackerInfo from './maplestory/union/unionAttackerInfo';
+import UnionInfo from './maplestory/union/unionInfo';
 
 const Game = () => {
   // Store
@@ -71,7 +74,8 @@ const Game = () => {
                 <span> 레벨 : {characterBaseInfos.character_level}</span>
                 <span> 인기도 : {characterPopularity}</span>
               </div>
-
+              {/* 무릉도장 최고기록 */}
+              <CharacterDojang />
               <div className="expInfo">
                 <div>
                   경험치 : {characterBaseInfos.character_exp_rate}% / 100%
@@ -92,12 +96,18 @@ const Game = () => {
           <CharacterItemEquipments />
           {/* 장착중인 캐시 장비 */}
           <CharacterCashItemEquipments />
+          {/* 장착중인 안드로이드 */}
+          <CharacterAndroidEquipments />
         </div>
 
-        {/* 장착중인 안드로이드 */}
-        <CharacterAndroidEquipments />
-        {/* 무릉도장 최고기록 */}
-        <CharacterDojang />
+        <div className="">
+          {/* 유니온 */}
+          <UnionInfo />
+          {/* 유니온 공격대 */}
+          <UnionAttackerInfo />
+          {/* 유니온 아티팩트 */}
+          <UnionArtifact />
+        </div>
       </div>
     </div>
   );

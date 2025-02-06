@@ -15,7 +15,11 @@ import {
   ICharacterSymbolInfo,
   IMapleCharacterBaseInfoFetchResponse,
 } from '@/apis/client/game/maplestory/character/characterApi';
-import { IUnionInfoFetchResponse } from '@/apis/client/game/maplestory/union/unionApi';
+import {
+  IUnionArtifactFetchResponse,
+  IUnionAttackerInfoFetchResponse,
+  IUnionInfoFetchResponse,
+} from '@/apis/client/game/maplestory/union/unionApi';
 import { create } from 'zustand';
 
 // ============================================================
@@ -171,4 +175,33 @@ export const useMapleUnionInfoStore = create<IMapleUnionInfoStore>((set) => ({
   unionInfo: null,
   setUnionInfo: (union) => set({ unionInfo: union }),
 }));
+// ============================================================
+
+// ============================================================
+// 유니온 공격대 정보 Store
+interface IMapleUnionAttackerInfoStore {
+  unionAttackerInfo: IUnionAttackerInfoFetchResponse | null;
+  setUnionAttackerInfo: (attacker: IUnionAttackerInfoFetchResponse) => void;
+}
+
+export const useMapleUnionAttackerInfoStore =
+  create<IMapleUnionAttackerInfoStore>((set) => ({
+    unionAttackerInfo: null,
+    setUnionAttackerInfo: (attacker) => set({ unionAttackerInfo: attacker }),
+  }));
+// ============================================================
+
+// ============================================================
+// 유니온 아티팩트 정보 Store
+interface IMapleUnionArtifactStore {
+  unionArtifact: IUnionArtifactFetchResponse | null;
+  setUnionArtifact: (artifact: IUnionArtifactFetchResponse) => void;
+}
+
+export const useMapleUnionArtifactStore = create<IMapleUnionArtifactStore>(
+  (set) => ({
+    unionArtifact: null,
+    setUnionArtifact: (artifact) => set({ unionArtifact: artifact }),
+  })
+);
 // ============================================================

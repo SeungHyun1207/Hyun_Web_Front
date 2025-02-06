@@ -18,7 +18,11 @@ import {
   getCharacterOCIDFetchResponse,
   IMapleCharacterInfoParameters,
 } from '@/apis/client/game/maplestory/mapleCommonApi';
-import { getUnionInfoFetchResponse } from '@/apis/client/game/maplestory/union/unionApi';
+import {
+  getUnionArtifactFetchResponse,
+  getUnionAttackerInfoFetchResponse,
+  getUnionInfoFetchResponse,
+} from '@/apis/client/game/maplestory/union/unionApi';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -30,6 +34,8 @@ import {
   useMapleCharacterOCIDStore,
   useMapleCharacterSetEffectStore,
   useMapleCharacterSymbolEquipmentsStore,
+  useMapleUnionArtifactStore,
+  useMapleUnionAttackerInfoStore,
   useMapleUnionInfoStore,
 } from './stores/useGameStore';
 
@@ -132,6 +138,14 @@ const useGame = () => {
   const setUnionInfo = useMapleUnionInfoStore(
     (unionInfo) => unionInfo.setUnionInfo
   );
+  // 유니온 공격대 조회
+  const setUnionAttackerInfo = useMapleUnionAttackerInfoStore(
+    (unionAttackerInfo) => unionAttackerInfo.setUnionAttackerInfo
+  );
+  // 유니온 아티팩트 조회
+  const setUnionArtifact = useMapleUnionArtifactStore(
+    (unionArtifact) => unionArtifact.setUnionArtifact
+  );
 
   /**
    * 캐릭터 식별자 조회
@@ -186,6 +200,16 @@ const useGame = () => {
         // ============================================================
         // 유니온 정보 조회
         getUnionInfo({
+          ocid: ocid,
+          date: yesterday.toISOString().split('T')[0],
+        });
+        // 유니온 공격대 정보 조회
+        getUnionAttackerInfo({
+          ocid: ocid,
+          date: yesterday.toISOString().split('T')[0],
+        });
+        // 유니온 아티팩트 정보 조회
+        getUnionArtifact({
           ocid: ocid,
           date: yesterday.toISOString().split('T')[0],
         });
@@ -390,6 +414,47 @@ const useGame = () => {
       });
       if (unionInfoData) {
         setUnionInfo(unionInfoData);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  /**
+   *  유니온 공격대 정보 조회
+   * @param characterOCID
+   * @param searchDate
+   */
+  const getUnionAttackerInfo = async (
+    params: IMapleCharacterInfoParameters
+  ) => {
+    try {
+      const unionAttackerInfoData = await getUnionAttackerInfoFetchResponse({
+        ocid: params.ocid,
+        date: params.date,
+      });
+      if (unionAttackerInfoData) {
+        setUnionAttackerInfo(unionAttackerInfoData);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  /**
+   *  유니온 아티팩트 정보 조회
+   * @param characterOCID
+   * @param searchDate
+   */
+  const getUnionArtifact = async (params: IMapleCharacterInfoParameters) => {
+    try {
+      const unionArtifactData = await getUnionArtifactFetchResponse({
+        ocid: params.ocid,
+        date: params.date,
+      });
+      console.log('unionArtifactData', unionArtifactData);
+      if (unionArtifactData) {
+        setUnionArtifact(unionArtifactData);
       }
     } catch (error) {
       console.log(error);

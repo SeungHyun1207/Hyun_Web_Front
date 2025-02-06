@@ -11,11 +11,10 @@ const CharacterDojang = () => {
 
   return (
     <div className="characterDojangWrap">
-      <h1>무릉도장</h1>
       {characterDojang && (
         <div>
           <div>
-            <span>최고 층수 : {characterDojang.dojang_best_floor}층</span>
+            <span>무릉 층수 : {characterDojang.dojang_best_floor}층</span>
             <span>시간 : {characterDojang.dojang_best_time}초</span>
           </div>
         </div>
