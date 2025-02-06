@@ -6,6 +6,7 @@
 
 import { useMapleCharacterBaseInfoStore } from '@/apis/hooks/client/game/stores/useGameStore';
 import useGame from '@/apis/hooks/client/game/useGame';
+import useMapleGuild from '@/apis/hooks/client/game/useMapleGuild';
 import { useEffect } from 'react';
 import CharacterAndroidEquipments from './maplestory/character/characterAndroidEquipments';
 import CharacterCashItemEquipments from './maplestory/character/characterCashItemEquipments';
@@ -13,6 +14,7 @@ import CharacterDojang from './maplestory/character/characterDojang';
 import CharacterItemEquipments from './maplestory/character/characterItemEquipments';
 import CharacterSetEffects from './maplestory/character/characterSetEffects';
 import CharacterSymbolEquipments from './maplestory/character/characterSymbolEquipments';
+import GuildInfo from './maplestory/guild/guildInfo';
 import UnionArtifact from './maplestory/union/unionArtifact';
 import UnionAttackerInfo from './maplestory/union/unionAttackerInfo';
 import UnionInfo from './maplestory/union/unionInfo';
@@ -32,12 +34,32 @@ const Game = () => {
     getCharacterOCID,
   } = useGame();
 
+  const {
+    // State
+    worldList,
+    guildSearchName,
+    worldSearchName,
+    setGuildSearchName,
+    setWorldSearchName,
+    // Handler
+    getGuildOGuildID,
+    handlerGuildSearch,
+  } = useMapleGuild();
+
   useEffect(() => {}, []);
 
   return (
     <div className="gameWrap">
       <div className="titleWrap">
         <span>게임</span>
+      </div>
+      <div className="searchBoxWrap">
+        <div className="characterSearch">
+          <span>캐릭터 검색</span>
+        </div>
+        <div className="guildSearch">
+          <span>길드 검색</span>
+        </div>
       </div>
       <div className="searchBoxWrap">
         <input
@@ -50,6 +72,35 @@ const Game = () => {
         <button
           onClick={() => {
             getCharacterOCID(characterSearchName);
+          }}
+        >
+          검색
+        </button>
+        <button onClick={() => {}}>초기화</button>
+      </div>
+      {/* ============================================================  */}
+      <div className="searchBoxWrap">
+        <input
+          placeholder="길드 명을 입력해 주세요!"
+          onChange={(e) => {
+            setGuildSearchName(e.target.value);
+          }}
+          onKeyDown={handlerGuildSearch}
+        />
+        <select
+          onChange={(e) => {
+            setWorldSearchName(e.currentTarget.value);
+          }}
+        >
+          {worldList &&
+            worldList.length > 0 &&
+            worldList.map((item) => (
+              <option label={item.label} value={item.value}></option>
+            ))}
+        </select>
+        <button
+          onClick={() => {
+            getGuildOGuildID(guildSearchName, worldSearchName);
           }}
         >
           검색
@@ -107,6 +158,10 @@ const Game = () => {
           <UnionAttackerInfo />
           {/* 유니온 아티팩트 */}
           <UnionArtifact />
+        </div>
+
+        <div className="guild">
+          <GuildInfo />
         </div>
       </div>
     </div>

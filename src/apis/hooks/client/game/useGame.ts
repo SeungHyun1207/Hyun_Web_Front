@@ -452,7 +452,6 @@ const useGame = () => {
         ocid: params.ocid,
         date: params.date,
       });
-      console.log('unionArtifactData', unionArtifactData);
       if (unionArtifactData) {
         setUnionArtifact(unionArtifactData);
       }
