@@ -10,24 +10,10 @@ interface IBaseButtonProps {
   type?: 'button' | 'submit' | 'reset';
   disabled?: boolean;
   onClick?: () => void;
-  // size?: 'small' | 'medium' | 'large';
-  // variant?: 'primary' | 'secondary' | 'outline-primary' | 'outline-secondary';
-  // block?: boolean;
-  // fullWidth?: boolean;
-  // isLoading?: boolean;
-  // icon?: React.ReactNode;
-  // loadingText?: string;
-  // as?: React.ElementType;
-  // href?: string;
-  // target?: '_blank' | '_self' | '_parent' | '_top';
-  // rel?: string;
-  // data?: Record<string, unknown>;
-  // to?: string | React.ReactElement | null;
-  // tabIndex?: number;
-  // autoFocus?: boolean;
-  // form?: string;
-  // formAction?: string;
-  // formEncType?: string;
+  customSize?: {
+    width: string;
+    height: string;
+  };
 }
 
 const BaseButton = ({
@@ -36,6 +22,7 @@ const BaseButton = ({
   disabled,
   onClick,
   type,
+  customSize,
 }: IBaseButtonProps) => {
   return (
     <>
@@ -44,6 +31,11 @@ const BaseButton = ({
         type={type}
         onClick={onClick}
         disabled={disabled}
+        style={
+          customSize
+            ? { width: customSize.width, height: customSize.height }
+            : {}
+        }
       >
         <span>{buttonName}</span>
       </button>
