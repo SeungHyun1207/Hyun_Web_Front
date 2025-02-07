@@ -6,7 +6,7 @@
 
 import useGnb from '@/apis/hooks/client/gnb/useGnb';
 
-const Gnb = () => {
+const ClientGnb = () => {
   const {
     // State
     clientMenuList,
@@ -56,4 +56,4 @@ const Gnb = () => {
   );
 };
 
-export default Gnb;
+export default ClientGnb;

@@ -4,13 +4,14 @@
  *  내용 : 사용자 공통 Header
  */
 
-import Gnb from '@/views/client/navigation/gnb';
+// import ClientGnb from '@/views/client/navigation/clientGnb';
+import ClientGnb from '@/views/client/navigation/clientGnb';
 
 const ClientHeader = () => {
   return (
     <div className="cHeaderWrap">
       {/* Header */}
-      <Gnb />
+      <ClientGnb />
     </div>
   );
 };

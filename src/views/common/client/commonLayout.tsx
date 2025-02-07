@@ -5,6 +5,7 @@
  */
 
 import ClientMain from '@/views/client/clientMain';
+import ClientLnb from '@/views/client/navigation/clientLnb';
 import { Outlet } from 'react-router-dom';
 import ClientHeader from './header';
 
@@ -13,6 +14,8 @@ const CommonLayout = () => {
     <div className="mainWrap">
       {/* Header */}
       <ClientHeader />
+      {/* SideBar */}
+      <ClientLnb />
       {/* Footer */}
       {/* Content */}
       <ClientMain />
