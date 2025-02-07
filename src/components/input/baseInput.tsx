@@ -18,22 +18,6 @@ interface IBaseInputProps {
   maxLength?: number;
   errorMessage?: string;
   icon?: React.ReactNode;
-  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
-  onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
-}
-
-interface IBaseInputProps {
-  type?: string;
-  name?: string;
-  value?: any;
-  placeholder?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  disabled?: boolean;
-  className?: string;
-  required?: boolean;
-  maxLength?: number;
-  errorMessage?: string;
-  icon?: React.ReactNode;
   size?: 'small' | 'medium' | 'large';
   customStyle?: React.CSSProperties; // ✅ 사용자가 직접 커스텀 스타일 적용 가능
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
