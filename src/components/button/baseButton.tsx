@@ -10,7 +10,6 @@ interface IBaseButtonProps {
   type?: 'button' | 'submit' | 'reset';
   disabled?: boolean;
   onClick?: () => void;
-
   // size?: 'small' | 'medium' | 'large';
   // variant?: 'primary' | 'secondary' | 'outline-primary' | 'outline-secondary';
   // block?: boolean;
@@ -41,23 +40,10 @@ const BaseButton = ({
   return (
     <>
       <button
-        className={className}
+        className={`btn ${className} ${disabled ? 'btn-disabled' : ''}`}
         type={type}
         onClick={onClick}
         disabled={disabled}
-        // className={`btn btn-${props.variant} ${props.size} ${
-        //   props.block ? 'btn-block' : ''
-        // } ${props.fullWidth ? 'w-100' : ''} ${
-        //   props.isLoading ? 'btn-loading' : ''
-        // }`}
-        // autoFocus={props.autoFocus}
-        // form={props.form}
-        // formAction={props.formAction}
-        // formEncType={props.formEncType}
-        // {...props.data}
-        // {...(props.to? { to: props.to } : {})}
-        // {...(props.href? { href: props.href, target: props.target, rel: props.rel } : {})}
-        // {...(props.tabIndex? { tabIndex: props.tabIndex } : {})}
       >
         <span>{buttonName}</span>
       </button>

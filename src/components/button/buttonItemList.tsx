@@ -11,13 +11,21 @@ const ButtonItemList = () => {
   return (
     <div className="buttonItemListWrap">
       <div className="buttonItemCardList">
-        <BaseButton buttonName="버튼1" type="button" className="red" />
-        <BaseButton buttonName="버튼2" type="button" className="red" />
-        <BaseButton buttonName="버튼3" type="button" className="red" />
-        <BaseButton buttonName="버튼4" type="button" className="red" />
-        <BaseButton buttonName="버튼5" type="button" className="red" />
-        <BaseButton buttonName="버튼6" type="button" className="red" />
-        <BaseButton buttonName="버튼7" type="button" className="red" />
+        <BaseButton buttonName="등록" className="btn-success" />
+        <BaseButton buttonName="저장" className="btn-primary" />
+        <BaseButton buttonName="삭제" className="btn-danger" />
+        <BaseButton buttonName="수정" className="btn-info" />
+        <BaseButton buttonName="취소" className="btn-secondary" />
+        <BaseButton buttonName="닫기" className="btn-warning" />
+        <BaseButton buttonName="경고" className="btn-outline-danger" />
+        <BaseButton buttonName="확인" className="btn-outline-success" />
+        <BaseButton
+          buttonName="삭제 (비활성화)"
+          className="btn-danger"
+          disabled
+        />
+        <BaseButton buttonName="작은 버튼" className="btn-primary small" />
+        <BaseButton buttonName="큰 버튼" className="btn-primary large" />
       </div>
     </div>
   );

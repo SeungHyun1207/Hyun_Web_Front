@@ -1,0 +1,150 @@
+$primary: #007bff; // 기본 블루
+$secondary: #6c757d; // 회색
+$danger: #dc3545; // 빨간색 (삭제, 경고)
+$success: #28a745; // 초록색 (등록, 확인)
+$warning: #ffc107; // 노란색 (주의)
+$info: #17a2b8; // 밝은 블루 (정보)
+$white: #ffffff;
+$black: #000000;
+$gray: #adb5bd;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out;
+
+  &-primary {
+    background-color: $primary;
+    color: $white;
+
+    &:hover {
+      background-color: darken($primary, 10%);
+    }
+
+    &:active {
+      background-color: darken($primary, 15%);
+    }
+  }
+
+  &-secondary {
+    background-color: $secondary;
+    color: $white;
+
+    &:hover {
+      background-color: darken($secondary, 10%);
+    }
+
+    &:active {
+      background-color: darken($secondary, 15%);
+    }
+  }
+
+  &-danger {
+    background-color: $danger;
+    color: $white;
+
+    &:hover {
+      background-color: darken($danger, 10%);
+    }
+
+    &:active {
+      background-color: darken($danger, 15%);
+    }
+  }
+
+  &-success {
+    background-color: $success;
+    color: $white;
+
+    &:hover {
+      background-color: darken($success, 10%);
+    }
+
+    &:active {
+      background-color: darken($success, 15%);
+    }
+  }
+
+  &-warning {
+    background-color: $warning;
+    color: $black;
+
+    &:hover {
+      background-color: darken($warning, 10%);
+    }
+
+    &:active {
+      background-color: darken($warning, 15%);
+    }
+  }
+
+  &-info {
+    background-color: $info;
+    color: $white;
+
+    &:hover {
+      background-color: darken($info, 10%);
+    }
+
+    &:active {
+      background-color: darken($info, 15%);
+    }
+  }
+
+  &-outline-danger {
+    background-color: transparent;
+    border: 2px solid $danger;
+    color: $danger;
+
+    &:hover {
+      background-color: rgba($danger, 0.1);
+    }
+
+    &:active {
+      background-color: rgba($danger, 0.2);
+    }
+  }
+
+  &-outline-success {
+    background-color: transparent;
+    border: 2px solid $success;
+    color: $success;
+
+    &:hover {
+      background-color: rgba($success, 0.1);
+    }
+
+    &:active {
+      background-color: rgba($success, 0.2);
+    }
+  }
+
+  &-disabled {
+    background-color: $gray;
+    color: $white;
+    cursor: not-allowed;
+    opacity: 0.6;
+
+    &:hover {
+      background-color: $gray;
+    }
+  }
+
+  // 크기 조절
+  &.small {
+    padding: 6px 12px;
+    font-size: 0.875rem;
+  }
+
+  &.large {
+    padding: 12px 20px;
+    font-size: 1.125rem;
+  }
+}
