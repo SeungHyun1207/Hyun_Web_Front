@@ -4,7 +4,7 @@
  *  내용 : 유니온 공격대 정보 조회
  */
 
-import { useMapleUnionAttackerInfoStore } from '@/apis/hooks/client/game/stores/useGameStore';
+import { useMapleUnionAttackerInfoStore } from '@/stores/game/useMapleCharacterStore';
 
 const UnionAttackerInfo = () => {
   const { unionAttackerInfo } = useMapleUnionAttackerInfoStore();

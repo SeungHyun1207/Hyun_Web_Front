@@ -4,7 +4,7 @@
  *  내용 : 유니온 아티팩트 정보 조회
  */
 
-import { useMapleUnionArtifactStore } from '@/apis/hooks/client/game/stores/useGameStore';
+import { useMapleUnionArtifactStore } from '@/stores/game/useMapleCharacterStore';
 
 const UnionArtifact = () => {
   const { unionArtifact } = useMapleUnionArtifactStore();

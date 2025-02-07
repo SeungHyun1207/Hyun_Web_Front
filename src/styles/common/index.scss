@@ -1,5 +1,9 @@
-@use './commonLayout.scss' as client;
-@use './gnb.scss' as clientGnb;
-@use './lnb.scss' as clientLnb;
-@use './adminCommonLayout.scss' as admin;
-@use './adminLnb.scss' as adminLnb;
+// commonIndex
+// Client
+@use './client/commonLayout.scss' as clientCommonLayout;
+@use './client/gnb.scss' as clientGnb;
+@use './client/lnb.scss' as clientLnb;
+
+// Admin
+@use './admin/adminCommonLayout.scss' as adminCommonLayout;
+@use './admin/adminLnb.scss' as adminLnb;

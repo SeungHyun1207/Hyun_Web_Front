@@ -23,22 +23,22 @@ const styleItems = [
   },
   {
     styleNo: 3,
-    styleUrl: 'trip',
-    styleCode: 'trip',
-    styleName: '여행',
+    styleUrl: 'input',
+    styleCode: 'input',
+    styleName: 'input',
   },
-  {
-    styleNo: 4,
-    styleUrl: 'study',
-    styleCode: 'study',
-    styleName: '공부',
-  },
-  {
-    styleNo: 5,
-    styleUrl: 'game',
-    styleCode: 'game',
-    styleName: '게임',
-  },
+  // {
+  //   styleNo: 4,
+  //   styleUrl: 'file',
+  //   styleCode: 'file',
+  //   styleName: 'file',
+  // },
+  // {
+  //   styleNo: 5,
+  //   styleUrl: 'toast',
+  //   styleCode: 'toast',
+  //   styleName: 'toast',
+  // },
   // {
   //   styleNo: 6,
   //   styleUrl: 'styleItem',
@@ -53,16 +53,25 @@ const useStyleItems = () => {
   const [styleItemsList, setStyleItemsList] =
     useState<IStyleItemsList[]>(styleItems);
 
+  const [styleItemShow, setStyleItemShow] = useState<string>('');
+
   // 아이템 클릭
   const handleStyleItemsClick = (styleUrl: string) => {
+    setStyleItemShow((prev) => {
+      // 같은 값을 다시 눌렀을 때 사라지지 않도록 방지
+      if (prev === styleUrl) {
+        return prev; // 상태 유지 (변경 없음)
+      }
+      return styleUrl;
+    });
     navigate(`/styleItem/${styleUrl}`);
   };
 
   return {
     // State
     styleItemsList,
+    styleItemShow,
     // SetState
-
     // Handler
     handleStyleItemsClick,
   };

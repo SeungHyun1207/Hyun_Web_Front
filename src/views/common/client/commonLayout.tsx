@@ -5,18 +5,19 @@
  */
 
 import ClientMain from '@/views/client/clientMain';
-import Gnb from '@/views/client/navigation/gnb';
 import { Outlet } from 'react-router-dom';
+import ClientHeader from './header';
 
 const CommonLayout = () => {
   return (
     <div className="mainWrap">
-      {/* Gnb */}
-      <Gnb />
+      {/* Header */}
+      <ClientHeader />
+      {/* Footer */}
+      {/* Content */}
       <ClientMain />
-
       {/* Outlet */}
-      <Outlet />
+      <Outlet />;
     </div>
   );
 };

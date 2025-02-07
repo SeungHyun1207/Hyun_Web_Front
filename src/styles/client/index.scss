@@ -1,3 +1,4 @@
 // client Index.scss
-@use './game/index.scss' as gameItem;
+@use './clientMain.scss' as clientMain;
+@use './game/index.scss' as game;
 @use './styleItem/index.scss' as styleItem;

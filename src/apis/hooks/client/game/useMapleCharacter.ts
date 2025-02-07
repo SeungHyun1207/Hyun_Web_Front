@@ -37,7 +37,7 @@ import {
   useMapleUnionArtifactStore,
   useMapleUnionAttackerInfoStore,
   useMapleUnionInfoStore,
-} from './stores/useGameStore';
+} from '../../../../stores/game/useMapleCharacterStore';
 
 export const equipmentOrder = [
   ['반지4', '', '모자', '', '엠블렘'],

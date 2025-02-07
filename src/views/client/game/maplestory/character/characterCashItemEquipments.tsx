@@ -3,11 +3,11 @@
  *  작성자 : SH.K
  *  내용 : 장착중인 캐시장비
  */
-import { useMapleCharacterCashItemEquipmentsStore } from '@/apis/hooks/client/game/stores/useGameStore';
 import {
   equipmentClassName,
   equipmentOrder,
 } from '@/apis/hooks/client/game/useMapleCharacter';
+import { useMapleCharacterCashItemEquipmentsStore } from '@/stores/game/useMapleCharacterStore';
 
 const CharacterCashItemEquipments = () => {
   const { characterCashItemEquipments } =

@@ -5,43 +5,27 @@
  */
 
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const useMapleCommon = () => {
-  // 캐릭터 검색 화면 Show Default : true
-  const [characterSearchWrapShow, setCharacterSearchWrapShow] =
-    useState<boolean>(true);
-  // 길드 검색 화면 Show
-  const [guildSearchWrapShow, setGuildSearchWrapShow] =
-    useState<boolean>(false);
+  const navigate = useNavigate();
 
-  // 캐릭터 컨텐츠 화면 Show
-  const [characterContentWrapShow, setCharacterContentWrapShow] =
-    useState<boolean>(true);
-  // 길드 컨텐츠 화면 Show
-  const [guildContentWrapShow, setGuildContentWrapShow] =
-    useState<boolean>(false);
+  const [mapleSearchViewShow, setMapleSearchViewShow] = useState<string>('');
 
   // 캐릭터 및 길드 검색 화면 핸들링
-  const handleSearchWrapShow = (type: 'character' | 'guild') => {
-    if (type === 'character') {
-      setCharacterSearchWrapShow(!characterSearchWrapShow);
-      setCharacterContentWrapShow(!characterContentWrapShow);
-      setGuildSearchWrapShow(!guildSearchWrapShow);
-      setGuildContentWrapShow(!guildContentWrapShow);
-    } else {
-      setCharacterSearchWrapShow(!characterSearchWrapShow);
-      setCharacterContentWrapShow(!characterContentWrapShow);
-      setGuildSearchWrapShow(!guildSearchWrapShow);
-      setGuildContentWrapShow(!guildContentWrapShow);
-    }
+  const handleSearchWrapShow = (type: 'character' | 'guild' | 'union') => {
+    setMapleSearchViewShow((prev) => {
+      if (prev === type) {
+        return prev;
+      }
+      return type;
+    });
+    navigate(`/game/${type}`);
   };
 
   return {
     // State
-    characterSearchWrapShow,
-    characterContentWrapShow,
-    guildSearchWrapShow,
-    guildContentWrapShow,
+    mapleSearchViewShow,
     // Handler
     handleSearchWrapShow,
   };

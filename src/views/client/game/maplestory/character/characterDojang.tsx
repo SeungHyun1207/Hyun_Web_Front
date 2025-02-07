@@ -4,7 +4,7 @@
  *  내용 : 캐릭터 무릉도장 최고기록 정보
  */
 
-import { useMapleCharacterDojangStore } from '@/apis/hooks/client/game/stores/useGameStore';
+import { useMapleCharacterDojangStore } from '@/stores/game/useMapleCharacterStore';
 
 const CharacterDojang = () => {
   const { characterDojang } = useMapleCharacterDojangStore();

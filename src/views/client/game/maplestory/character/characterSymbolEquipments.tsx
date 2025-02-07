@@ -3,7 +3,7 @@
  *  작성자 : SH.K
  *  내용 : 장착중인 심볼
  */
-import { useMapleCharacterSymbolEquipmentsStore } from '@/apis/hooks/client/game/stores/useGameStore';
+import { useMapleCharacterSymbolEquipmentsStore } from '@/stores/game/useMapleCharacterStore';
 
 const CharacterSymbolEquipments = () => {
   const { characterSymbolEquipments } =

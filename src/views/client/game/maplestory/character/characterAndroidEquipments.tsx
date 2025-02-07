@@ -3,7 +3,7 @@
  *  작성자 : SH.K
  *  내용 : 장착중인 안드로이드
  */
-import { useMapleCharacterAndroidStore } from '@/apis/hooks/client/game/stores/useGameStore';
+import { useMapleCharacterAndroidStore } from '@/stores/game/useMapleCharacterStore';
 
 const CharacterAndroidEquipments = () => {
   const { characterAndroidEquipment } = useMapleCharacterAndroidStore();

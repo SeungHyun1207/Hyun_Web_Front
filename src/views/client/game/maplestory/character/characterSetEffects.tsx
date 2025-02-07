@@ -1,4 +1,4 @@
-import { useMapleCharacterSetEffectStore } from '@/apis/hooks/client/game/stores/useGameStore';
+import { useMapleCharacterSetEffectStore } from '@/stores/game/useMapleCharacterStore';
 
 /**
  *  작성일 : 2025-02-05

@@ -1,10 +1,17 @@
 import ClientMain from '@/views/client/clientMain';
+import MapleIndex from '@/views/client/game/mapleIndex';
+import CharacterIndex from '@/views/client/game/maplestory/character/characterIndex';
+import GuildIndex from '@/views/client/game/maplestory/guild/guildIndex';
+import UnionIndex from '@/views/client/game/maplestory/union/unionIndex';
+import StyleItem from '@/views/client/styleItems/styleItemIndex';
 import CommonLayout from '@/views/common/client/commonLayout';
-import Game from '@/views/client/game/mapleIndex';
-import StyleItem from '@views/client/styleItems/styleItems';
 import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import './App.scss';
+import ButtonItemList from './components/button/buttonItemList';
+import InputItemList from './components/input/inputItemList';
+import LoginItemList from './components/login/loginItemList';
+import ToastItemList from './components/toast/toastItemList';
 import SecurityCheck from './routers/securityCheck';
 import defaultTheme from './theme/defaultTheme';
 
@@ -16,6 +23,7 @@ function App() {
     <ThemeProvider theme={defaultTheme}>
       {/* 보안 체크 */}
       <Routes>
+        {/* 아직 로그인페이지 사용x 임으로 일단 주석처리 */}
         <Route path={'/'} element={<SecurityCheck />}>
           <Route element={<CommonLayout />}>
             {/* 로그인 */}
@@ -29,10 +37,17 @@ function App() {
             {/* 여행 */}
             {/* 공부 */}
             {/* 게임 */}
-            <Route path="game" element={<Game />} />
+            <Route path="game" element={<MapleIndex />}>
+              <Route path="character" element={<CharacterIndex />} />
+              <Route path="guild" element={<GuildIndex />} />
+              <Route path="union" element={<UnionIndex />} />
+            </Route>
             {/* 스타일 아이템 */}
             <Route path="styleItem" element={<StyleItem />}>
-              {/* <Route path="" <StyleItem /> */}
+              <Route path="login" element={<LoginItemList />} />
+              <Route path="button" element={<ButtonItemList />} />
+              <Route path="toast" element={<ToastItemList />} />
+              <Route path="input" element={<InputItemList />} />
             </Route>
           </Route>
           {/*

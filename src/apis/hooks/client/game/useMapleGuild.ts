@@ -13,7 +13,7 @@ import { useState } from 'react';
 import {
   useMapleGuildBaseInfoStore,
   useMapleGuildOGuildIDStore,
-} from './stores/useMapleGuildStore';
+} from '../../../../stores/game/useMapleGuildStore';
 
 const worldList = [
   {

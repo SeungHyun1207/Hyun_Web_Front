@@ -3,11 +3,11 @@
  *  작성자 : SH.K
  *  내용 : 장착중인 장비
  */
-import { useMapleCharacterItemEquipmentsStore } from '@/apis/hooks/client/game/stores/useGameStore';
 import {
   equipmentClassName,
   equipmentOrder,
 } from '@/apis/hooks/client/game/useMapleCharacter';
+import { useMapleCharacterItemEquipmentsStore } from '@/stores/game/useMapleCharacterStore';
 
 const CharacterItemEquipments = () => {
   const { characterItemEquipments } = useMapleCharacterItemEquipmentsStore();

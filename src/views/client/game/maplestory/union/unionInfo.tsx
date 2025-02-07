@@ -4,7 +4,7 @@
  *  내용 : 유니온 정보 조회
  */
 
-import { useMapleUnionInfoStore } from '@/apis/hooks/client/game/stores/useGameStore';
+import { useMapleUnionInfoStore } from '@/stores/game/useMapleCharacterStore';
 
 const UnionInfo = () => {
   const { unionInfo } = useMapleUnionInfoStore();
