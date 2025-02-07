@@ -19,7 +19,10 @@ interface IBaseInputProps {
   errorMessage?: string;
   icon?: React.ReactNode;
   size?: 'small' | 'medium' | 'large';
-  customStyle?: React.CSSProperties; // ✅ 사용자가 직접 커스텀 스타일 적용 가능
+  customSize?: {
+    width: string;
+    height: string;
+  };
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
 }
@@ -34,13 +37,17 @@ const BaseInput = ({
   errorMessage,
   icon,
   size = 'medium',
-  customStyle, // ✅ 커스텀 스타일
-  ...props
+  customSize, // ✅ 커스텀 스타일
 }: IBaseInputProps) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   return (
-    <div className="input-wrapper" style={customStyle}>
+    <div
+      className="input-wrapper"
+      style={
+        customSize && { width: customSize.width, height: customSize.height }
+      }
+    >
       {/* 아이콘이 있을 경우 왼쪽에 표시 */}
       {icon && <span className="input-icon">{icon}</span>}
 
@@ -51,10 +58,12 @@ const BaseInput = ({
           errorMessage ? 'input-error' : ''
         } input-${size} ${icon ? 'input-search' : ''}`}
         placeholder={placeholder}
+        style={
+          customSize && { width: customSize.width, height: customSize.height }
+        }
         value={value}
         onChange={onChange}
         disabled={disabled}
-        {...props}
       />
 
       {/* 비밀번호 보이기 버튼 */}
