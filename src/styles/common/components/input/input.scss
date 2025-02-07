@@ -1,0 +1,66 @@
+$primary: #007bff;
+$danger: #dc3545;
+$gray: #adb5bd;
+$white: #ffffff;
+$border-radius: 6px;
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 1rem;
+  border: 1px solid $gray;
+  border-radius: $border-radius;
+  outline: none;
+  transition: border 0.2s ease-in-out;
+
+  &:focus {
+    border-color: $primary;
+  }
+
+  &-error {
+    border-color: $danger;
+  }
+
+  /* 🛠️ 기본 사이즈 */
+  &-small {
+    padding: 6px 10px;
+    font-size: 0.875rem;
+  }
+
+  &-medium {
+    padding: 10px 14px;
+    font-size: 1rem;
+  }
+
+  &-large {
+    padding: 14px 18px;
+    font-size: 1.25rem;
+  }
+}
+
+/* 아이콘 적용 */
+.input-icon {
+  position: absolute;
+  left: 12px;
+  font-size: 1.2rem;
+  color: $gray;
+}
+
+/* 검색 입력 (아이콘 포함) */
+.input-search {
+  padding-left: 36px;
+}
+
+/* 에러 메시지 */
+.input-error-message {
+  color: $danger;
+  font-size: 0.875rem;
+  margin-top: 4px;
+}
