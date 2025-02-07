@@ -101,8 +101,14 @@ const CharacterIndex = () => {
           )}
         </div>
         <div className="itemInfo">
-          <CharacterItemEquipments />
-          <CharacterCashItemEquipments />
+          <div className="itemEquipmentsInfo">
+            <span>장착중인 장비</span>
+            <CharacterItemEquipments />
+          </div>
+          <div className="cashItemEquipmentsInfo">
+            <span>장착중인 캐시 장비</span>
+            <CharacterCashItemEquipments />
+          </div>
         </div>
       </div>
     </div>
