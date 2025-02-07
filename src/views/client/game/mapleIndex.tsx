@@ -193,9 +193,9 @@ const MapleIndex = () => {
   //       )}
   //       <div>
   //         {/* 장착중인 장비 */}
-  //         <CharacterItemEquipments />
+  //
   //         {/* 장착중인 캐시 장비 */}
-  //         <CharacterCashItemEquipments />
+  //
   //         {/* 장착중인 안드로이드 */}
   //         <CharacterAndroidEquipments />
   //       </div>

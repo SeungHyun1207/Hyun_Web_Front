@@ -9,6 +9,9 @@ $border-radius: 6px;
   align-items: center;
   position: relative;
   width: 100%;
+  span {
+    cursor: pointer;
+  }
 }
 
 .input {

@@ -11,7 +11,6 @@ interface IBaseInputProps {
   name?: string;
   value?: any;
   placeholder?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
   className?: string;
   required?: boolean;
@@ -20,11 +19,14 @@ interface IBaseInputProps {
   icon?: React.ReactNode;
   size?: 'small' | 'medium' | 'large';
   customSize?: {
-    width: string;
-    height: string;
+    width?: string;
+    height?: string;
   };
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
+  onClick?: () => void;
+  onKeyDown?: (e: React.KeyboardEvent) => void;
 }
 
 const BaseInput = ({
@@ -32,12 +34,14 @@ const BaseInput = ({
   className = '',
   placeholder,
   value,
-  onChange,
   disabled,
   errorMessage,
   icon,
   size = 'medium',
   customSize, // ✅ 커스텀 스타일
+  onChange,
+  onClick,
+  onKeyDown,
 }: IBaseInputProps) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
@@ -49,7 +53,11 @@ const BaseInput = ({
       }
     >
       {/* 아이콘이 있을 경우 왼쪽에 표시 */}
-      {icon && <span className="input-icon">{icon}</span>}
+      {icon && (
+        <span className="input-icon" onClick={onClick}>
+          {icon}
+        </span>
+      )}
 
       {/* Input 필드 */}
       <input
@@ -62,7 +70,8 @@ const BaseInput = ({
           customSize && { width: customSize.width, height: customSize.height }
         }
         value={value}
-        onChange={onChange}
+        onChange={(e) => onChange && onChange(e)}
+        onKeyDown={(e) => onKeyDown && onKeyDown(e)}
         disabled={disabled}
       />
 

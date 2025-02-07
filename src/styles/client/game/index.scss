@@ -1,1 +1,4 @@
-@use './maplestory//mapleIndex.scss' as mapleIndex;
+@use './maplestory/mapleIndex.scss' as mapleIndex;
+@use './maplestory/character/characterIndex.scss' as characterIndex;
+@use './maplestory/guild/guildIndex.scss' as guildIndex;
+@use './maplestory/union/union.scss' as unionIndex;

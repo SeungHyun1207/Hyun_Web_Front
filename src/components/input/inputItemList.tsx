@@ -93,6 +93,7 @@ const InputItemList = () => {
               placeholder={input.placeholder}
               errorMessage={input.errorMessage}
               customSize={input.customSize}
+              icon={input.icon}
             />
           </div>
         ))}
