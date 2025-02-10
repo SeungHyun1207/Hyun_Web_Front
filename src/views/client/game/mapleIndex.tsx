@@ -53,8 +53,6 @@ const MapleIndex = () => {
   //   handlerGuildSearch,
   // } = useMapleGuild();
 
-  // useEffect(() => {}, []);
-
   return (
     <div className="mapleIndexWrap">
       <div className="title">

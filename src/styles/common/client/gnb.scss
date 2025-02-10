@@ -1,10 +1,19 @@
-.client-gnb {
+.clientGnb {
+  // position: sticky;
+  // top: 0;
+  position: absolute;
+  top: 0;
   display: flex;
+  width: 100%;
+  // background-color: rgb(150, 197, 197);
   gap: 10px;
-  border: 1px solid black;
-  margin-left: 160px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
   .logo_wrap {
+    width: 50px;
     height: 50px;
+    background-color: azure;
     img {
       width: 100%;
       height: 100%;
@@ -12,16 +21,24 @@
   }
   .gnb_wrap {
     display: flex;
+    gap: 10px;
     justify-content: space-between;
     align-items: center;
     height: 60px;
     .gnbItem {
       margin-right: 20px;
     }
-    .emptyGnbItem {
-      span {
-        font-size: 16px;
-      }
+  }
+  .login_wrap {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-end;
+    .login_btn {
+      border-radius: 8px;
+      background-color: #2b2b2b;
+      color: white;
+      font-size: 16px;
     }
   }
 }

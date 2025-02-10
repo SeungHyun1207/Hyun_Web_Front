@@ -1,0 +1,51 @@
+.clientMain {
+  width: 100%;
+  height: 100vh;
+  //   background-color: aquamarine;
+  padding: 0 20px;
+  overflow: auto;
+  scroll-snap-type: y mandatory; // 스크롤을 내릴 때 특정 위치에서 자동으로 멈춤.
+  .contentWrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    .content {
+      border: 1px solid black;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      background-color: lightblue;
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      .profileWrap {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+        .leftContent {
+          width: 50%;
+          border: 1px solid black;
+          .profile {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            img {
+              width: 50px;
+              height: 50px;
+              border-radius: 50%;
+            }
+          }
+        }
+        .rightContent {
+          width: 50%;
+          border: 1px solid black;
+        }
+      }
+    }
+  }
+}

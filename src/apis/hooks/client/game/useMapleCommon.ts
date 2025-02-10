@@ -4,13 +4,21 @@
  *  내용 : 사용자 Maple 공통 Hook
  */
 
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const useMapleCommon = () => {
+  const location = useLocation();
   const navigate = useNavigate();
 
   const [mapleSearchViewShow, setMapleSearchViewShow] = useState<string>('');
+
+  const gamePathCheck = () => {
+    if (location.pathname === '/game') {
+      setMapleSearchViewShow('character');
+      navigate('/game/character');
+    }
+  };
 
   // 캐릭터 및 길드 검색 화면 핸들링
   const handleSearchWrapShow = (type: 'character' | 'guild' | 'union') => {
@@ -23,10 +31,16 @@ const useMapleCommon = () => {
     navigate(`/game/${type}`);
   };
 
+  useEffect(() => {
+    gamePathCheck();
+  }, [location.pathname]);
+
   return {
     // State
     mapleSearchViewShow,
+    setMapleSearchViewShow,
     // Handler
+    gamePathCheck,
     handleSearchWrapShow,
   };
 };

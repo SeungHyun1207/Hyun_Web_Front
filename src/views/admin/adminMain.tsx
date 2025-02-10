@@ -5,17 +5,13 @@
  */
 
 const AdminMain = () => {
+  return (
+    <div className="adminMainWrap">
+      <div className="mainContent">
+        <h2>테스트</h2>
+      </div>
+    </div>
+  );
+};
 
-
-
-    return (
-        <div className="mainWrap">
-            <div className="mainContent">
-                <h2>테스트</h2>
-            </div>
-        </div>
-    )
-
-}
-
-export default AdminMain; 
+export default AdminMain;

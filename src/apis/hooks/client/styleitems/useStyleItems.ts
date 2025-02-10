@@ -5,8 +5,8 @@
  */
 
 import { IStyleItemsList } from '@/apis/client/styleItemsApi';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const styleItems = [
   {
@@ -49,11 +49,19 @@ const styleItems = [
 
 const useStyleItems = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [styleItemsList, setStyleItemsList] =
     useState<IStyleItemsList[]>(styleItems);
 
   const [styleItemShow, setStyleItemShow] = useState<string>('');
+
+  const styleItemPathCheck = () => {
+    if (location.pathname === '/styleItem') {
+      setStyleItemShow('login');
+      navigate('/styleItem/login');
+    }
+  };
 
   // 아이템 클릭
   const handleStyleItemsClick = (styleUrl: string) => {
@@ -67,12 +75,17 @@ const useStyleItems = () => {
     navigate(`/styleItem/${styleUrl}`);
   };
 
+  useEffect(() => {
+    styleItemPathCheck();
+  }, [location.pathname]);
+
   return {
     // State
     styleItemsList,
     styleItemShow,
     // SetState
     // Handler
+    styleItemPathCheck,
     handleStyleItemsClick,
   };
 };

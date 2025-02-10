@@ -4,23 +4,20 @@
  *  내용 : 사용자 공통 레이아웃
  */
 
-import ClientMain from '@/views/client/clientMain';
-import ClientLnb from '@/views/client/navigation/clientLnb';
 import { Outlet } from 'react-router-dom';
 import ClientHeader from './header';
 
 const CommonLayout = () => {
   return (
-    <div className="mainWrap">
+    <div className="clientMainWrap">
       {/* Header */}
       <ClientHeader />
       {/* SideBar */}
-      <ClientLnb />
+      {/* <ClientLnb /> */}
       {/* Footer */}
       {/* Content */}
-      <ClientMain />
       {/* Outlet */}
-      <Outlet />;
+      <Outlet />
     </div>
   );
 };

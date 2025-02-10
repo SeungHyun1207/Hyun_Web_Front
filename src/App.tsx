@@ -25,7 +25,7 @@ function App() {
       <Routes>
         {/* 아직 로그인페이지 사용x 임으로 일단 주석처리 */}
         <Route path={'/'} element={<SecurityCheck />}>
-          <Route element={<CommonLayout />}>
+          <Route path="/" element={<CommonLayout />}>
             {/* 로그인 */}
             {/*<Route path="login" element={<Login />} />*/}
 
@@ -33,9 +33,33 @@ function App() {
             <Route path="main" element={<ClientMain />} />
 
             {/* 프로필 */}
+            <Route path="profile" element={<MapleIndex />}>
+              <Route path="" element={<CharacterIndex />} />
+              <Route path="" element={<CharacterIndex />} />
+              <Route path="" element={<CharacterIndex />} />
+              <Route path="" element={<CharacterIndex />} />
+            </Route>
             {/* 포토폴리오 */}
+            <Route path="portfolio" element={<MapleIndex />}>
+              <Route path="" element={<CharacterIndex />} />
+              <Route path="" element={<CharacterIndex />} />
+              <Route path="" element={<CharacterIndex />} />
+              <Route path="" element={<CharacterIndex />} />
+            </Route>
             {/* 여행 */}
+            <Route path="trip" element={<MapleIndex />}>
+              <Route path="" element={<CharacterIndex />} />
+              <Route path="" element={<CharacterIndex />} />
+              <Route path="" element={<CharacterIndex />} />
+              <Route path="" element={<CharacterIndex />} />
+            </Route>
             {/* 공부 */}
+            <Route path="study" element={<MapleIndex />}>
+              <Route path="html" element={<CharacterIndex />} />
+              <Route path="css" element={<CharacterIndex />} />
+              <Route path="react" element={<CharacterIndex />} />
+              <Route path="javascript" element={<CharacterIndex />} />
+            </Route>
             {/* 게임 */}
             <Route path="game" element={<MapleIndex />}>
               <Route path="character" element={<CharacterIndex />} />

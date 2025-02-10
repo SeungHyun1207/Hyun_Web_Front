@@ -5,7 +5,9 @@
  */
 .styleItemWrap {
   width: 100%;
+  overflow: auto;
   border: 1px solid black;
+  margin-top: 60px;
   background-color: antiquewhite;
   .styleItemSelectList {
     display: flex;
