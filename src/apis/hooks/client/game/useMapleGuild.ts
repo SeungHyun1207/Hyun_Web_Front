@@ -9,11 +9,13 @@ import {
   getOGuildIdFetchResponse,
   IGuildBaseInfoFetchRequest,
 } from '@/apis/client/game/maplestory/guild/guildApi';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   useMapleGuildBaseInfoStore,
   useMapleGuildOGuildIDStore,
 } from '../../../../stores/game/useMapleGuildStore';
+import useMapleCharacter from './useMapleCharacter';
 
 const worldList = [
   {
@@ -91,13 +93,20 @@ const worldList = [
 ];
 
 const useMapleGuild = () => {
+  const navigate = useNavigate();
+
   const today = new Date();
   const yesterday = new Date(today.getTime() - 24 * 60 * 60 * 1000);
+
+  // 길드 마스터의 정보
+  const { getCharacterOCID } = useMapleCharacter();
 
   // 길드명
   const [guildSearchName, setGuildSearchName] = useState<string>('');
   // 서버
   const [worldSearchName, setWorldSearchName] = useState<string>('');
+
+  const [guildMasterName, setGuildMasterName] = useState<string>('');
 
   const setGuildOGuildID = useMapleGuildOGuildIDStore(
     (oGuildId) => oGuildId.setGuildOGuildID
@@ -129,9 +138,8 @@ const useMapleGuild = () => {
         world_name: worldSearchName,
       });
       if (oGuildId) {
-        console.log(oGuildId);
         setGuildOGuildID(oGuildId);
-
+        navigate(`/game/guild?guildName=${guildSearchName}`);
         // 길드 기본 정보
         getGuildBaseInfo({
           oguild_id: oGuildId,
@@ -156,11 +164,14 @@ const useMapleGuild = () => {
       });
       if (guildBaseInfoData) {
         setGuildBaseInfo(guildBaseInfoData);
+        getCharacterOCID(guildBaseInfoData.guild_master_name);
       }
     } catch (error) {
       console.log(error);
     }
   };
+
+  useEffect(() => {}, []);
 
   return {
     // Array

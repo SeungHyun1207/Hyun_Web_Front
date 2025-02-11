@@ -1,0 +1,63 @@
+.guildIndexWrap {
+  .guildTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .title {
+      margin-bottom: 20px;
+      span {
+        font-weight: bold;
+        font-size: 30px;
+      }
+    }
+  }
+  // 길드 검색
+  .guildSearch {
+    display: flex;
+    gap: 5px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  // 길드 정보
+  .guildInfoWrap {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    border: 1px solid black;
+    .guildInfoCard {
+      width: 30%;
+      .guildInfo {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    .guildMemberInfo {
+      width: 70%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px; /* 카드 간격 */
+      padding: 10px;
+      .memberName {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        span {
+          display: inline-block;
+          padding: 10px;
+          font-size: 16px;
+          font-weight: bold;
+          border: 1px solid black;
+          border-radius: 8px; /* 카드 모양 */
+          background-color: #f8f8f8; /* 카드 배경색 */
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* 카드 그림자 */
+          text-align: center;
+        }
+      }
+    }
+  }
+}

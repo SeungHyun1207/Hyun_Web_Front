@@ -152,7 +152,6 @@ const useMapleCharacter = () => {
    * @param characterName
    */
   const getCharacterOCID = async (characterName: string) => {
-    console.log('characterSearchName', characterSearchName);
     try {
       const { ocid: ocid } = await getCharacterOCIDFetchResponse(characterName);
       if (ocid) {
