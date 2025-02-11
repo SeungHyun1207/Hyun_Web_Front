@@ -13,10 +13,27 @@ const CharacterSymbolEquipments = () => {
     <div className="characterSymbolWrap">
       {characterSymbolEquipments && characterSymbolEquipments.length > 0 ? (
         characterSymbolEquipments.map((item, index) => {
+          const symbolName = item.symbol_name;
+          const splitName = symbolName.split('아케인심볼 : ');
+          const maxLevel = symbolName.includes('아케인')
+            ? 20
+            : symbolName.includes('어센틱')
+            ? 11
+            : null;
+
           return (
             <div key={index} className="symbolItem">
-              <img src={item.symbol_icon} alt={item.symbol_name} />
-              <span>{item.symbol_name}</span>
+              <div className="symbolImg">
+                <img src={item.symbol_icon} alt={item.symbol_name} />
+              </div>
+              <div className="symbolInfo">
+                <span>{splitName}</span>
+                {maxLevel && (
+                  <span>
+                    {item.symbol_level} / {maxLevel}
+                  </span>
+                )}
+              </div>
             </div>
           );
         })

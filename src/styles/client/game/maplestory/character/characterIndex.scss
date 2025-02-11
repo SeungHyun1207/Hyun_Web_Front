@@ -18,149 +18,330 @@
     justify-content: center;
     padding: 0 30px 0 30px;
     margin-top: 30px;
-    // 캐릭터 정보
-    .characterBaseInfoWrap {
-      display: flex;
-      border: 1px solid black;
-      .imageWithNameInfo {
+
+    // 기본정보
+    .baseInfoCard {
+      width: 100%;
+      border: 1px solid #000000;
+      border-radius: 10px;
+      background-color: #000000;
+      color: #ffffff;
+      .characterBaseInfoWrap {
+        width: 100%;
         display: flex;
         flex-direction: column;
-        text-align: center;
-        span {
-          font-size: 14px;
-          font-weight: bold;
-        }
-      }
-      .characterInfo {
-        .classWithLevelWithPopularityInfo {
+        gap: 10px;
+        padding: 20px;
+        .baseInfoWrap {
+          width: 100%;
+          display: flex;
           gap: 10px;
-          span {
+          .imageWithNameInfo {
+            display: flex;
+            flex-direction: column;
+          }
+          .characterInfo {
+            display: flex;
+            flex-direction: column;
+            .classWithLevelWithPopularityInfo {
+              .classInfo {
+                span {
+                  font-size: 14px;
+                  font-weight: bold;
+                }
+              }
+              span {
+                font-size: 14px;
+                font-weight: bold;
+              }
+            }
           }
         }
-        .expInfo {
-          flex-direction: column;
-        }
-        .guildInfo {
+      }
+      .symbolWithSetEffectInfo {
+        .characterSymbolWrap {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 5px;
+          padding: 20px;
+          .symbolItem {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin: 10px 0 0 0;
+            width: 100%;
+            align-items: center;
+            border: 1px solid white;
+            .symbolImg {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin: 10px;
+            }
+            .symbolInfo {
+              display: flex;
+              flex-direction: column;
+              span {
+                font-size: 12px;
+                font-weight: bold;
+              }
+            }
+          }
         }
       }
     }
 
-    // 장착중인 아이템
-    .characterItemWrap {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 5px;
-      background: #2b2b2b;
-      padding: 20px;
-      border-radius: 10px;
-      justify-items: center;
-      width: 500px;
-      .slotRow {
-        display: contents;
-      }
+    // 장착중인 장비 정보
+    .itemInfo {
+      // 장착중인 장비 아이템
+      .itemEquipmentsInfo {
+        // 장착중인 장비 아이템
+        .characterItemWrap {
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          gap: 5px;
+          background: #2b2b2b;
+          padding: 20px;
+          border-radius: 10px;
+          justify-items: center;
+          width: 500px;
+          .slotRow {
+            display: contents;
+          }
 
-      .equipment-slot {
-        width: 60px;
-        height: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(245, 245, 245, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        border-radius: 8px;
-        transition: background 0.3s ease;
+          .equipment-slot {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(245, 245, 245, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            transition: background 0.3s ease;
 
-        &:hover {
-          background: rgba(255, 255, 255, 0.2);
+            &:hover {
+              background: rgba(255, 255, 255, 0.2);
+            }
+          }
+
+          .equipment-icon {
+            width: 80%;
+            height: auto;
+          }
+
+          .empty-slot {
+            width: 60px;
+            height: 60px;
+            background: transparent;
+          }
+
+          .no-equipment {
+            color: #ffffff;
+            width: 500px;
+            text-align: center;
+          }
+
+          // 개별 아이템 스타일 지정
+          .ringInfo {
+            border: 2px solid gold;
+          }
+          .capInfo {
+            border: 2px solid #ffcc00;
+          }
+          .emblemInfo {
+            border: 2px solid #ff0066;
+          }
+          .pendantInfo {
+            border: 2px solid #ff6600;
+          }
+          .foreheadInfo {
+            border: 2px solid #66ccff;
+          }
+          .badgeInfo {
+            border: 2px solid #339933;
+          }
+          .eyeInfo {
+            border: 2px solid #9966ff;
+          }
+          .earringInfo {
+            border: 2px solid #ff99cc;
+          }
+          .medalInfo {
+            border: 2px solid #ff3333;
+          }
+          .weaponInfo {
+            border: 2px solid #000;
+          }
+          .clothesInfo {
+            border: 2px solid #0033cc;
+          }
+          .shoulderInfo {
+            border: 2px solid #660000;
+          }
+          .subWeaponInfo {
+            border: 2px solid #ffccff;
+          }
+          .pocketInfo {
+            border: 2px solid #ffcc33;
+          }
+          .beltInfo {
+            border: 2px solid #cc9900;
+          }
+          pantsInfo {
+            border: 2px solid #009999;
+          }
+          .glovesInfo {
+            border: 2px solid #cc0033;
+          }
+          .capeInfo {
+            border: 2px solid #ff6699;
+          }
+          .shoesInfo {
+            border: 2px solid #663399;
+          }
+          .androidInfo {
+            border: 2px solid #33cc33;
+          }
+          .heartInfo {
+            border: 2px solid #ff0033;
+          }
         }
       }
 
-      .equipment-icon {
-        width: 80%;
-        height: auto;
-      }
+      // 장착중인 캐시 장비
+      .cashItemEquipmentsInfo {
+        // 장착중인 캐시 아이템
+        .characterItemWrap {
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          gap: 5px;
+          background: #2b2b2b;
+          padding: 20px;
+          border-radius: 10px;
+          justify-items: center;
+          width: 500px;
+          .slotRow {
+            display: contents;
+          }
 
-      .empty-slot {
-        width: 60px;
-        height: 60px;
-        background: transparent;
-      }
+          .equipment-slot {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(245, 245, 245, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            transition: background 0.3s ease;
 
-      .no-equipment {
-        color: #ffffff;
-        width: 500px;
-        text-align: center;
-      }
+            &:hover {
+              background: rgba(255, 255, 255, 0.2);
+            }
+          }
 
-      // 개별 아이템 스타일 지정
-      .ringInfo {
-        border: 2px solid gold;
-      }
-      .capInfo {
-        border: 2px solid #ffcc00;
-      }
-      .emblemInfo {
-        border: 2px solid #ff0066;
-      }
-      .pendantInfo {
-        border: 2px solid #ff6600;
-      }
-      .foreheadInfo {
-        border: 2px solid #66ccff;
-      }
-      .badgeInfo {
-        border: 2px solid #339933;
-      }
-      .eyeInfo {
-        border: 2px solid #9966ff;
-      }
-      .earringInfo {
-        border: 2px solid #ff99cc;
-      }
-      .medalInfo {
-        border: 2px solid #ff3333;
-      }
-      .weaponInfo {
-        border: 2px solid #000;
-      }
-      .clothesInfo {
-        border: 2px solid #0033cc;
-      }
-      .shoulderInfo {
-        border: 2px solid #660000;
-      }
-      .subWeaponInfo {
-        border: 2px solid #ffccff;
-      }
-      .pocketInfo {
-        border: 2px solid #ffcc33;
-      }
-      .beltInfo {
-        border: 2px solid #cc9900;
-      }
-      pantsInfo {
-        border: 2px solid #009999;
-      }
-      .glovesInfo {
-        border: 2px solid #cc0033;
-      }
-      .capeInfo {
-        border: 2px solid #ff6699;
-      }
-      .shoesInfo {
-        border: 2px solid #663399;
-      }
-      .androidInfo {
-        border: 2px solid #33cc33;
-      }
-      .heartInfo {
-        border: 2px solid #ff0033;
+          .equipment-icon {
+            width: 80%;
+            height: auto;
+          }
+
+          .empty-slot {
+            width: 60px;
+            height: 60px;
+            background: transparent;
+          }
+
+          .no-equipment {
+            color: #ffffff;
+            width: 500px;
+            text-align: center;
+          }
+
+          // 개별 아이템 스타일 지정
+          .ringInfo {
+            border: 2px solid gold;
+          }
+          .capInfo {
+            border: 2px solid #ffcc00;
+          }
+          .emblemInfo {
+            border: 2px solid #ff0066;
+          }
+          .pendantInfo {
+            border: 2px solid #ff6600;
+          }
+          .foreheadInfo {
+            border: 2px solid #66ccff;
+          }
+          .badgeInfo {
+            border: 2px solid #339933;
+          }
+          .eyeInfo {
+            border: 2px solid #9966ff;
+          }
+          .earringInfo {
+            border: 2px solid #ff99cc;
+          }
+          .medalInfo {
+            border: 2px solid #ff3333;
+          }
+          .weaponInfo {
+            border: 2px solid #000;
+          }
+          .clothesInfo {
+            border: 2px solid #0033cc;
+          }
+          .shoulderInfo {
+            border: 2px solid #660000;
+          }
+          .subWeaponInfo {
+            border: 2px solid #ffccff;
+          }
+          .pocketInfo {
+            border: 2px solid #ffcc33;
+          }
+          .beltInfo {
+            border: 2px solid #cc9900;
+          }
+          pantsInfo {
+            border: 2px solid #009999;
+          }
+          .glovesInfo {
+            border: 2px solid #cc0033;
+          }
+          .capeInfo {
+            border: 2px solid #ff6699;
+          }
+          .shoesInfo {
+            border: 2px solid #663399;
+          }
+          .androidInfo {
+            border: 2px solid #33cc33;
+          }
+          .heartInfo {
+            border: 2px solid #ff0033;
+          }
+        }
       }
     }
   }
 
-  // 장착중인 장비 정보
   .itemInfo {
     display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .itemEquipmentsInfo {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .cashItemEquipmentsInfo {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
   }
 }
