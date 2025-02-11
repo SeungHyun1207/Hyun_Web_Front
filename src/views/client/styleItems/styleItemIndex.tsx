@@ -8,12 +8,14 @@ import useStyleItems from '@/apis/hooks/client/styleitems/useStyleItems';
 import ButtonItemList from '@/components/button/buttonItemList';
 import InputItemList from '@/components/input/inputItemList';
 import LoginItemList from '@/components/login/loginItemList';
+import SelectItemList from '@/components/select/selectItemList';
 
 // Tab Names
 const StyleItemComponentMap: Record<string, JSX.Element> = {
   login: <LoginItemList />,
   button: <ButtonItemList />,
   input: <InputItemList />,
+  select: <SelectItemList />,
 };
 
 const StyleItem = () => {

@@ -25,7 +25,13 @@ const styleItems = [
     styleNo: 3,
     styleUrl: 'input',
     styleCode: 'input',
-    styleName: 'input',
+    styleName: 'Input',
+  },
+  {
+    styleNo: 4,
+    styleUrl: 'select',
+    styleCode: 'select',
+    styleName: 'Select',
   },
   // {
   //   styleNo: 4,

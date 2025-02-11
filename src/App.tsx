@@ -11,6 +11,7 @@ import './App.scss';
 import ButtonItemList from './components/button/buttonItemList';
 import InputItemList from './components/input/inputItemList';
 import LoginItemList from './components/login/loginItemList';
+import SelectItemList from './components/select/selectItemList';
 import ToastItemList from './components/toast/toastItemList';
 import SecurityCheck from './routers/securityCheck';
 import defaultTheme from './theme/defaultTheme';
@@ -72,6 +73,7 @@ function App() {
               <Route path="button" element={<ButtonItemList />} />
               <Route path="toast" element={<ToastItemList />} />
               <Route path="input" element={<InputItemList />} />
+              <Route path="select" element={<SelectItemList />} />
             </Route>
           </Route>
           {/*
