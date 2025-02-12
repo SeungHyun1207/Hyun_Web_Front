@@ -7,6 +7,24 @@ import BaseButton from './baseButton';
  */
 const buttonList = [
   {
+    buttonName: '네온 버튼 1',
+    buttonClassName: 'btn-neon-skyblue',
+    disabled: false,
+    customSize: { width: '200px', height: '50px' },
+  },
+  {
+    buttonName: '네온 버튼 2',
+    buttonClassName: 'btn-neon-purple',
+    disabled: false,
+    customSize: { width: '200px', height: '50px' },
+  },
+  {
+    buttonName: '네온 버튼 3',
+    buttonClassName: 'btn-neon-green',
+    disabled: false,
+    customSize: { width: '200px', height: '50px' },
+  },
+  {
     buttonName: '저장',
     buttonClassName: 'btn-primary',
     disabled: false,
@@ -75,24 +93,6 @@ const buttonList = [
   {
     buttonName: '사이즈 커스텀 버튼',
     buttonClassName: 'btn-primary btn-custom',
-    disabled: false,
-    customSize: { width: '200px', height: '50px' },
-  },
-  {
-    buttonName: '네온 버튼 1',
-    buttonClassName: 'btn-neon-skyblue',
-    disabled: false,
-    customSize: { width: '200px', height: '50px' },
-  },
-  {
-    buttonName: '네온 버튼 2',
-    buttonClassName: 'btn-neon-purple',
-    disabled: false,
-    customSize: { width: '200px', height: '50px' },
-  },
-  {
-    buttonName: '네온 버튼 3',
-    buttonClassName: 'btn-neon-green',
     disabled: false,
     customSize: { width: '200px', height: '50px' },
   },
