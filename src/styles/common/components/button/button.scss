@@ -1,12 +1,18 @@
-$primary: #007bff; // 기본 블루
-$secondary: #6c757d; // 회색
-$danger: #dc3545; // 빨간색 (삭제, 경고)
-$success: #28a745; // 초록색 (등록, 확인)
-$warning: #ffc107; // 노란색 (주의)
-$info: #17a2b8; // 밝은 블루 (정보)
+$primary: #007bff;
+$secondary: #6c757d;
+$danger: #dc3545;
+$success: #28a745;
+$warning: #ffc107;
+$info: #17a2b8;
 $white: #ffffff;
 $black: #000000;
 $gray: #adb5bd;
+$purple: #b829db91;
+$skyblue: #03e9f4;
+$glitch-red: #ff0000;
+$glitch-green: #00ff00;
+$glitch-blue: #00bfff;
+$glitch-purple: #b829db;
 
 .btn {
   display: inline-flex;
@@ -20,142 +26,573 @@ $gray: #adb5bd;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out;
 
-  &-primary {
+  // 버튼 컬러 스타일
+  &.btn-primary {
     background-color: $primary;
     color: $white;
-
     &:hover {
-      background-color: darken($primary, 10%);
-    }
-
-    &:active {
-      background-color: darken($primary, 15%);
+      background-color: ($primary, 10%);
     }
   }
 
-  &-secondary {
+  &.btn-secondary {
     background-color: $secondary;
     color: $white;
-
     &:hover {
-      background-color: darken($secondary, 10%);
-    }
-
-    &:active {
-      background-color: darken($secondary, 15%);
+      background-color: ($secondary, 10%);
     }
   }
 
-  &-danger {
+  &.btn-danger {
     background-color: $danger;
     color: $white;
-
     &:hover {
-      background-color: darken($danger, 10%);
-    }
-
-    &:active {
-      background-color: darken($danger, 15%);
+      background-color: ($danger, 10%);
     }
   }
 
-  &-success {
+  &.btn-success {
     background-color: $success;
     color: $white;
-
     &:hover {
-      background-color: darken($success, 10%);
-    }
-
-    &:active {
-      background-color: darken($success, 15%);
+      background-color: ($success, 10%);
     }
   }
 
-  &-warning {
+  &.btn-warning {
     background-color: $warning;
     color: $black;
-
     &:hover {
-      background-color: darken($warning, 10%);
-    }
-
-    &:active {
-      background-color: darken($warning, 15%);
+      background-color: ($warning, 10%);
     }
   }
 
-  &-info {
+  &.btn-info {
     background-color: $info;
     color: $white;
-
     &:hover {
-      background-color: darken($info, 10%);
-    }
-
-    &:active {
-      background-color: darken($info, 15%);
+      background-color: ($info, 10%);
     }
   }
 
-  &-outline-danger {
-    background-color: transparent;
-    border: 2px solid $danger;
-    color: $danger;
+  // 네온 버튼 효과
+  &.btn-neon-skyblue {
+    position: relative;
+    background: $white;
+    color: $black;
+    box-shadow: 0 0 10px $skyblue;
+    transition: 0.3s;
+    overflow: hidden;
 
     &:hover {
-      background-color: rgba($danger, 0.1);
+      box-shadow: 0 0 20px $skyblue;
+      transform: scale(1.05);
+      background-color: $skyblue;
     }
 
-    &:active {
-      background-color: rgba($danger, 0.2);
+    span {
+      position: relative;
+      z-index: 2;
+    }
+
+    // 네온 애니메이션용 span 요소들
+    .neon-line {
+      position: absolute;
+      display: block;
+      background: linear-gradient(90deg, transparent, $skyblue);
+    }
+
+    .line1 {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, $skyblue);
+      animation: neonAnimate1 1s linear infinite;
+    }
+
+    .line2 {
+      top: -100%;
+      right: 0;
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(180deg, transparent, $skyblue);
+      animation: neonAnimate2 1s linear infinite;
+      animation-delay: 0.25s;
+    }
+
+    .line3 {
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(270deg, transparent, $skyblue);
+      animation: neonAnimate3 1s linear infinite;
+      animation-delay: 0.5s;
+    }
+
+    .line4 {
+      bottom: -100%;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(360deg, transparent, #03e9f4);
+      animation: neonAnimate4 1s linear infinite;
+      animation-delay: 0.75s;
     }
   }
 
-  &-outline-success {
-    background-color: transparent;
-    border: 2px solid $success;
-    color: $success;
+  &.btn-neon-purple {
+    position: relative;
+    background: $white;
+    color: $black;
+    box-shadow: 0 0 10px $purple;
+    transition: 0.3s;
+    overflow: hidden;
 
     &:hover {
-      background-color: rgba($success, 0.1);
+      box-shadow: 0 0 20px $purple;
+      transform: scale(1.05);
+      background-color: $purple;
     }
 
-    &:active {
-      background-color: rgba($success, 0.2);
+    span {
+      position: relative;
+      z-index: 2;
+    }
+
+    // 네온 애니메이션용 span 요소들
+    .neon-line {
+      position: absolute;
+      display: block;
+      background: linear-gradient(90deg, transparent, $purple);
+    }
+
+    .line1 {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, $purple);
+      animation: neonAnimate1 1s linear infinite;
+    }
+
+    .line2 {
+      top: -100%;
+      right: 0;
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(180deg, transparent, $purple);
+      animation: neonAnimate2 1s linear infinite;
+      animation-delay: 0.25s;
+    }
+
+    .line3 {
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(270deg, transparent, $purple);
+      animation: neonAnimate3 1s linear infinite;
+      animation-delay: 0.5s;
+    }
+
+    .line4 {
+      bottom: -100%;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(360deg, transparent, $purple);
+      animation: neonAnimate4 1s linear infinite;
+      animation-delay: 0.75s;
     }
   }
 
-  &-disabled {
-    background-color: $gray;
-    color: $white;
-    cursor: not-allowed;
-    opacity: 0.6;
+  &.btn-neon-green {
+    position: relative;
+    background: $white;
+    color: $black;
+    box-shadow: 0 0 10px $success;
+    transition: 0.3s;
+    overflow: hidden;
 
     &:hover {
-      background-color: $gray;
+      box-shadow: 0 0 20px $success;
+      transform: scale(1.05);
+      background-color: $success;
+    }
+
+    span {
+      position: relative;
+      z-index: 2;
+    }
+
+    // 네온 애니메이션용 span 요소들
+    .neon-line {
+      position: absolute;
+      display: block;
+      background: linear-gradient(90deg, transparent, $success);
+    }
+
+    .line1 {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, $success);
+      animation: neonAnimate1 1s linear infinite;
+    }
+
+    .line2 {
+      top: -100%;
+      right: 0;
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(180deg, transparent, $success);
+      animation: neonAnimate2 1s linear infinite;
+      animation-delay: 0.25s;
+    }
+
+    .line3 {
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(270deg, transparent, $success);
+      animation: neonAnimate3 1s linear infinite;
+      animation-delay: 0.5s;
+    }
+
+    .line4 {
+      bottom: -100%;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(360deg, transparent, $success);
+      animation: neonAnimate4 1s linear infinite;
+      animation-delay: 0.75s;
     }
   }
 
-  // 크기 조절 (size prop)
-  &-small {
+  // 치지직 효과
+  .btn-glitch {
+    position: relative;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: black;
+    border: 2px solid $glitch-blue;
+    box-shadow: 0 0 10px $glitch-blue, 0 0 25px $glitch-blue;
+    overflow: hidden;
+    transition: 0.2s;
+
+    &:hover {
+      box-shadow: 0 0 15px $glitch-blue, 0 0 35px $glitch-blue;
+    }
+
+    .glitch-text {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: inherit;
+      font-weight: inherit;
+      text-transform: inherit;
+      color: white;
+      background: inherit;
+    }
+
+    .glitch-layer1 {
+      transform: translate(1px, -1px);
+      animation: glitch1 0.5s infinite linear alternate-reverse;
+    }
+
+    .glitch-layer2 {
+      transform: translate(-1px, 1px);
+      animation: glitch2 0.5s infinite linear alternate-reverse;
+    }
+  }
+
+  // 색상별 Glitch 버튼 스타일 (darken 없이 직접 색상 적용)
+  .btn-glitch-red {
+    border-color: $glitch-red;
+    box-shadow: 0 0 10px $glitch-red, 0 0 25px $glitch-red;
+
+    &:hover {
+      box-shadow: 0 0 15px $glitch-red, 0 0 35px $glitch-red;
+    }
+
+    .glitch-layer1 {
+      color: $glitch-red;
+    }
+
+    .glitch-layer2 {
+      color: #b30000; // darken 없이 직접 조정한 색상
+    }
+  }
+
+  .btn-glitch-green {
+    border-color: $glitch-green;
+    box-shadow: 0 0 10px $glitch-green, 0 0 25px $glitch-green;
+
+    &:hover {
+      box-shadow: 0 0 15px $glitch-green, 0 0 35px $glitch-green;
+    }
+
+    .glitch-layer1 {
+      color: $glitch-green;
+    }
+
+    .glitch-layer2 {
+      color: #008000; // 직접 조정한 색상
+    }
+  }
+
+  .btn-glitch-purple {
+    border-color: $glitch-purple;
+    box-shadow: 0 0 10px $glitch-purple, 0 0 25px $glitch-purple;
+
+    &:hover {
+      box-shadow: 0 0 15px $glitch-purple, 0 0 35px $glitch-purple;
+    }
+
+    .glitch-layer1 {
+      color: $glitch-purple;
+    }
+
+    .glitch-layer2 {
+      color: #7d0d8f; // 직접 조정한 색상
+    }
+  }
+
+  // 스위치 버튼 효과
+  &.btn-switch {
+    background: #333;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    &::before {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, #ff0000, #0000ff);
+      top: -50%;
+      left: -50%;
+      transform: rotate(45deg);
+      transition: 0.3s;
+    }
+    &:hover::before {
+      left: 0;
+      top: 0;
+    }
+  }
+
+  // 애니메이션 버튼 효과
+  &.btn-animated {
+    position: relative;
+    overflow: hidden;
+    background: #ff6600;
+    color: white;
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      top: 0;
+      left: -100%;
+      transition: 0.3s;
+    }
+    &:hover::after {
+      left: 100%;
+    }
+  }
+
+  // 그라디언트 버튼
+  &.btn-gradient {
+    background: linear-gradient(90deg, #ff5733, #ffcc33);
+    color: white;
+    transition: 0.3s;
+    &:hover {
+      background: linear-gradient(90deg, #ffcc33, #ff5733);
+    }
+  }
+
+  // Hover 효과 버튼
+  &.btn-hover {
+    background: #17a2b8;
+    color: white;
+    transition: 0.3s;
+    &:hover {
+      background: #138496;
+    }
+  }
+
+  // 블럭 버튼 (전체 너비)
+  &.btn-block {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    background: #6c757d;
+    color: white;
+    &:hover {
+      background: (#6c757d, 10%);
+    }
+  }
+
+  // 흘러가는 텍스트 버튼
+  &.btn-marquee {
+    border: none;
+    transition: 0.3s;
+    overflow: hidden;
+    white-space: nowrap;
+    span {
+      display: inline-block;
+      padding: 0 20px;
+      animation: move-left 10s linear infinite;
+    }
+  }
+
+  // 크로스 버튼 효과
+  &.btn-cross {
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 50%;
+      background: var(--btn-bg);
+      transform: scaleX(0);
+      transition: transform 0.5s;
+    }
+    &::before {
+      top: 0;
+      transform-origin: left;
+    }
+    &::after {
+      top: 50%;
+      transform-origin: right;
+    }
+    &:hover {
+      background: transparent;
+      &::before,
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+
+  // 크기 조절
+  &.btn-small {
     padding: 6px 12px;
     font-size: 0.875rem;
   }
 
-  &-medium {
-    padding: 8px 16px; // 기본 값
+  &.btn-medium {
+    padding: 8px 16px;
     font-size: 1rem;
   }
 
-  &-large {
+  &.btn-large {
     padding: 12px 20px;
     font-size: 1.125rem;
   }
 
-  // 사용자 지정 크기 (customSize를 직접 설정 가능)
-  &.custom {
-    width: auto; // 기본적으로 자동 크기 설정
+  // 사용자 지정 크기
+  &.btn-custom {
+    width: auto;
     height: auto;
+  }
+}
+
+@keyframes move-left {
+  to {
+    transform: translateX(-100%);
+  }
+}
+@keyframes neonAnimate1 {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes neonAnimate2 {
+  0% {
+    top: -100%;
+  }
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes neonAnimate3 {
+  0% {
+    right: -100%;
+  }
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+
+@keyframes neonAnimate4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,
+  100% {
+    bottom: 100%;
+  }
+}
+
+// Glitch 애니메이션
+@keyframes glitch1 {
+  0% {
+    transform: translate(-1px, -1px);
+  }
+  25% {
+    transform: translate(2px, -2px);
+  }
+  50% {
+    transform: translate(-2px, 2px);
+  }
+  75% {
+    transform: translate(1px, -1px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes glitch2 {
+  0% {
+    transform: translate(1px, 1px);
+  }
+  25% {
+    transform: translate(-2px, 2px);
+  }
+  50% {
+    transform: translate(2px, -2px);
+  }
+  75% {
+    transform: translate(-1px, 1px);
+  }
+  100% {
+    transform: translate(0, 0);
   }
 }

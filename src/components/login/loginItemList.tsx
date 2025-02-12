@@ -29,9 +29,7 @@ const LoginItemList = () => {
         {loginCardList && loginCardList.length > 0 ? (
           loginCardList.map((item, index) => (
             <div key={index} className="loginCard">
-              <h3>{item.title}</h3>
-              <p>{item.content}</p>
-              <a href={item.link}>{item.title} 바로가기</a>
+              <div className=""></div>
             </div>
           ))
         ) : (
