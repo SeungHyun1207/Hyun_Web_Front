@@ -11,8 +11,8 @@ interface IBaseButtonProps {
   disabled?: boolean;
   onClick?: () => void;
   customSize?: {
-    width: string;
-    height: string;
+    width?: string;
+    height?: string;
   };
   isGlitch?: boolean;
 }

@@ -26,7 +26,7 @@ const buttonList = [
   },
   {
     buttonName: '저장',
-    buttonClassName: 'btn-primary',
+    buttonClassName: 'btn-success',
     disabled: false,
     customSize: { width: '200px', height: '100px' },
   },
@@ -38,13 +38,13 @@ const buttonList = [
   },
   {
     buttonName: '수정',
-    buttonClassName: 'btn-info',
+    buttonClassName: 'btn-edit',
     disabled: false,
     customSize: { width: '200px', height: '50px' },
   },
   {
     buttonName: '취소',
-    buttonClassName: 'btn-secondary',
+    buttonClassName: 'btn-cancel',
     disabled: false,
     customSize: { width: '200px', height: '100px' },
   },
@@ -56,25 +56,25 @@ const buttonList = [
   },
   {
     buttonName: '삭제(비활성화)',
-    buttonClassName: 'btn-danger',
+    buttonClassName: 'btn-disabled',
     disabled: true,
     customSize: { width: '200px', height: '50px' },
   },
   {
     buttonName: '닫기',
-    buttonClassName: 'btn-warning',
+    buttonClassName: 'btn-close',
     disabled: false,
     customSize: { width: '200px', height: '50px' },
   },
   {
     buttonName: '경고',
-    buttonClassName: 'btn-outline-danger',
+    buttonClassName: 'btn-warning',
     disabled: false,
     customSize: { width: '200px', height: '50px' },
   },
   {
     buttonName: '확인',
-    buttonClassName: 'btn-outline-success',
+    buttonClassName: 'btn-success',
     disabled: false,
     customSize: { width: '200px', height: '50px' },
   },
@@ -82,7 +82,7 @@ const buttonList = [
     buttonName: '작은 버튼',
     buttonClassName: 'btn-primary btn-small',
     disabled: false,
-    customSize: { width: '200px', height: '50px' },
+    customSize: { width: '250px', height: '100px' },
   },
   {
     buttonName: '큰 버튼',
