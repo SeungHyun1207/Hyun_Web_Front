@@ -19,8 +19,6 @@ const CharacterSetEffects = () => {
           );
           const totalCount = totalCountList?.total_set_count;
 
-          console.log('totalCount', totalCount);
-
           return (
             <div key={index}>
               {totalCount && totalCount > 1 && (
