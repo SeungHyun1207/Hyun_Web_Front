@@ -33,6 +33,12 @@ const styleItems = [
     styleCode: 'select',
     styleName: 'Select',
   },
+  {
+    styleNo: 5,
+    styleUrl: 'table',
+    styleCode: 'table',
+    styleName: 'Table',
+  },
   // {
   //   styleNo: 4,
   //   styleUrl: 'file',

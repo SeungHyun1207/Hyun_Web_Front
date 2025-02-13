@@ -1,3 +1,9 @@
+import ButtonItemList from '@/components/button/buttonItemList';
+import InputItemList from '@/components/input/inputItemList';
+import LoginItemList from '@/components/login/loginItemList';
+import SelectItemList from '@/components/select/selectItemList';
+import TableItemList from '@/components/table/tableItemList';
+import ToastItemList from '@/components/toast/toastItemList';
 import ClientMain from '@/views/client/clientMain';
 import MapleIndex from '@/views/client/game/mapleIndex';
 import CharacterIndex from '@/views/client/game/maplestory/character/characterIndex';
@@ -8,11 +14,6 @@ import CommonLayout from '@/views/common/client/commonLayout';
 import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import './App.scss';
-import ButtonItemList from './components/button/buttonItemList';
-import InputItemList from './components/input/inputItemList';
-import LoginItemList from './components/login/loginItemList';
-import SelectItemList from './components/select/selectItemList';
-import ToastItemList from './components/toast/toastItemList';
 import SecurityCheck from './routers/securityCheck';
 import defaultTheme from './theme/defaultTheme';
 
@@ -74,6 +75,7 @@ function App() {
               <Route path="toast" element={<ToastItemList />} />
               <Route path="input" element={<InputItemList />} />
               <Route path="select" element={<SelectItemList />} />
+              <Route path="table" element={<TableItemList />} />
             </Route>
           </Route>
           {/*
