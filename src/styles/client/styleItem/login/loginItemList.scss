@@ -3,25 +3,295 @@
  *  작성자 : SH.K
  *  내용 : LoginItemList 스타일 파일 
  */
+$gray: #aaa9a9;
+$purple: #9503af;
+$skyblue: #03e9f4;
+$white: #ffffff;
+$black: #000000;
 
 .loginItemsWrap {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  background: linear-gradient(135deg, #eceff1, #cfd8dc);
+
   .loginCardList {
     display: flex;
-    width: 100%;
+    flex-direction: column;
+    gap: 20px;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    border: 1px solid red;
     padding: 20px;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+
     .loginCard {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
       width: 100%;
-      height: 100%;
-      border: 1px solid black;
-      background-color: white;
+      max-width: 1100px;
+      height: 75vh;
+      border-radius: 10px;
+      background-color: $white;
+      box-shadow: 0 0 20px $skyblue;
+      // box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+      overflow: hidden;
+
+      // &:hover {
+      //   box-shadow: 0 0 20px $skyblue;
+      //   transform: scale(1.05);
+      //   background-color: rgba(#03e9f4, 0.7);
+      // }
+
+      span {
+        position: relative;
+        z-index: 2;
+      }
+
+      // 네온 애니메이션용 네온 라인
+      .neon-line {
+        position: absolute;
+        display: block;
+        background: linear-gradient(90deg, transparent, $skyblue);
+      }
+
+      .line1 {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, $skyblue);
+        animation: neonAnimate1 1s linear infinite;
+        animation-delay: 0.25s;
+      }
+
+      .line2 {
+        top: -100%;
+        right: 0;
+        width: 3px;
+        height: 100%;
+        background: linear-gradient(180deg, transparent, $skyblue);
+        animation: neonAnimate2 1s linear infinite;
+        animation-delay: 0.25s;
+      }
+
+      .line3 {
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(270deg, transparent, $skyblue);
+        animation: neonAnimate3 1s linear infinite;
+        animation-delay: 0.25s;
+      }
+
+      .line4 {
+        bottom: -100%;
+        left: 0;
+        width: 3px;
+        height: 100%;
+        background: linear-gradient(360deg, transparent, $skyblue);
+        animation: neonAnimate4 1s linear infinite;
+        animation-delay: 0.25s;
+      }
+      &.bounce {
+        animation: bounceEffect 0.5s infinite alternate;
+      }
+
+      &.shake {
+        animation: shakeEffect 0.5s infinite alternate;
+      }
+
+      // 통합
+      .signInUpWrap {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        height: 100%;
+        background-color: $white;
+        padding: 20px;
+        gap: 30px;
+        .signInUpTitle {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          .title {
+            color: $black;
+            font-size: 30px;
+          }
+        }
+
+        .signInUpContent {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 20px;
+          width: 100%;
+
+          .emailBox,
+          .idBox,
+          .pwBox {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            span {
+              width: 80px;
+              text-align: right;
+            }
+          }
+        }
+
+        // 회원가입일 때,
+        &.signUp {
+          position: absolute;
+          right: 0;
+          animation: move-left 1s ease-in-out forwards;
+        }
+        // 로그인일 때,
+        &.signIn {
+          position: absolute;
+          left: 0;
+          animation: move-right 1s ease-in-out forwards;
+        }
+      }
+
+      .introWrap {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        height: 100%;
+        background-color: #5d89b3;
+        padding: 20px;
+        gap: 30px;
+        .introTitle {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          h2 {
+            color: $white;
+            font-size: 30px;
+          }
+        }
+
+        .introContent {
+          width: 100%;
+          display: flex;
+          align-content: center;
+          justify-content: center;
+          span {
+            color: $white;
+            font-size: 19px;
+            font-weight: bold;
+          }
+        }
+
+        // 회원가입일 때,
+        &.signUp {
+          position: absolute;
+          right: 0;
+          animation: move-left 1s ease-in-out forwards;
+        }
+        // 로그인일 때,
+        &.signIn {
+          position: absolute;
+          left: 0;
+          animation: move-right 1s ease-in-out forwards;
+        }
+      }
     }
+  }
+}
+
+@keyframes move-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes move-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+// 네온 애니메이션 키프레임
+@keyframes neonAnimate1 {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes neonAnimate2 {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes neonAnimate3 {
+  0% {
+    right: -100%;
+  }
+  100% {
+    right: 100%;
+  }
+}
+
+@keyframes neonAnimate4 {
+  0% {
+    bottom: -100%;
+  }
+  100% {
+    bottom: 100%;
+  }
+}
+
+@keyframes bounceEffect {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shakeEffect {
+  0% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(5px);
   }
 }
