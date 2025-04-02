@@ -54,6 +54,7 @@ const BaseSelect = <T extends string | number>({
     onChange?.(newValue);
   };
 
+  // selectGroupOption도 확인
   return (
     <div
       className={`select-wrapper ${selectType}`}

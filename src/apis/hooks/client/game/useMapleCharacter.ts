@@ -23,8 +23,8 @@ import {
   getUnionAttackerInfoFetchResponse,
   getUnionInfoFetchResponse,
 } from '@/apis/client/game/maplestory/union/unionApi';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import {
   useMapleCharacterAndroidStore,
   useMapleCharacterBaseInfoStore,
@@ -79,6 +79,7 @@ export const equipmentClassName = new Map([
 
 const useMapleCharacter = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const today = new Date();
   const yesterday = new Date(today.getTime() - 24 * 60 * 60 * 1000);
@@ -156,6 +157,7 @@ const useMapleCharacter = () => {
       const { ocid: ocid } = await getCharacterOCIDFetchResponse(characterName);
       if (ocid) {
         setCharacterOCID(ocid);
+        navigate(`/game/character?characterName=${characterName}`);
         // 기본 정보
         getCharacterInfo({
           ocid: ocid,
@@ -459,6 +461,13 @@ const useMapleCharacter = () => {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    // 초기화 시켜야함 경로 이상
+    if (location.pathname === '/game/character' && characterSearchName === '') {
+      navigate(`/game/character`);
+    }
+  }, []);
 
   return {
     // State

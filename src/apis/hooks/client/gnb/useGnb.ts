@@ -45,6 +45,12 @@ const menuList = [
     menuCode: 'styleItem',
     menuName: '스타일 아이템',
   },
+  {
+    menuNo: 7,
+    menuUrl: 'styleItem',
+    menuCode: 'styleItem',
+    menuName: '스타일 아이템',
+  },
 ];
 
 const useGnb = () => {

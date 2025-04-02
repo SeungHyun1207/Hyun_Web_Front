@@ -37,7 +37,7 @@ const loginCardList: ILoginItem[] = [
 const LoginItemList = () => {
   // True =>  로그인
   // false => 회원가입
-  const [loginView, setLoginView] = useState<boolean>(true);
+  const [loginView, setLoginView] = useState<boolean>(false);
 
   return (
     <div className="loginItemsWrap">
